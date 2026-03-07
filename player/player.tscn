@@ -2,10 +2,14 @@
 
 [ext_resource type="Script" uid="uid://cly6668x6qhe7" path="res://player/player.gd" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://cn0ou7rcilhol" path="res://weapons/src/weapon_handler.gd" id="2_onrkg"]
-[ext_resource type="Resource" uid="uid://c87tuvgyqjhsv" path="res://weapons/basic_weapon.tres" id="3_hqtel"]
 [ext_resource type="Script" uid="uid://b56rc5l363sun" path="res://components/health_component.gd" id="3_i3pqv"]
 [ext_resource type="Script" uid="uid://ckhyssj1uux5o" path="res://components/freeze_component.gd" id="5_qjkh3"]
 [ext_resource type="Texture2D" uid="uid://ce2jnwwqdufv6" path="res://assets/Player.png" id="6_g6k8r"]
+
+[sub_resource type="GDScript" id="GDScript_qjkh3"]
+
+[sub_resource type="Resource" id="Resource_g6k8r"]
+script = SubResource("GDScript_qjkh3")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sh265"]
 radius = 48.0
@@ -22,7 +26,7 @@ limit_smoothed = true
 
 [node name="WeaponHolder" type="Node2D" parent="." unique_id=277273061]
 script = ExtResource("2_onrkg")
-current_weapon = ExtResource("3_hqtel")
+current_weapon = SubResource("Resource_g6k8r")
 metadata/_custom_type_script = "uid://cn0ou7rcilhol"
 
 [node name="HealthComponent" type="Node2D" parent="." unique_id=343040301]

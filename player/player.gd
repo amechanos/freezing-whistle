@@ -21,7 +21,7 @@ func _physics_process(delta):
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 	
-	if Input.is_action_pressed("fire"):
+	if Input.is_action_just_pressed("fire"):
 		weapon_holder.shoot()
 	
 	if Input.is_action_just_pressed("volley"):
@@ -34,9 +34,6 @@ func _physics_process(delta):
 	$WeaponPivot.rotation = look_dir
 	
 	move_and_slide()
-
-func update_graphics(weapon_data: WeaponData):
-	sprite.texture = weapon_data.player_texture
 
 func kill():
 	pass

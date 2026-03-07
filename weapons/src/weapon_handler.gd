@@ -4,57 +4,66 @@ class_name WeaponHolder
 @onready var graphics : Sprite2D = $"../WeaponPivot/Sprite2D"
 @onready var firing_point : Marker2D = $"../WeaponPivot/FiringPoint"
 
-@export var current_weapon : WeaponData
+@export var bullet_count : int = 1
+@export_range(0, 1) var arc : float = 0
+@export_range(0, 20) var fire_rate : float = 1.5
+
+@export var burst_size : int = 15
+@export var burst_cooldown: int = 10
+@export_range(0, 1) var time_tween_shots : float = 0.25
+
+var bullet_scene = preload("res://bullets/basic_bullet.tscn")
 
 var can_shoot : bool = true
+var can_shoot_burst : bool = true
 
-signal shot_fired(weapon: WeaponData)
-signal update_ui(weapon: WeaponData)
-
-func _ready() -> void:
-	if current_weapon:
-		current_weapon = current_weapon.duplicate()
-	update_ui.emit(current_weapon)
+signal shot_fired()
+signal update_ui()
 
 func shoot():
-	if current_weapon == null or !can_shoot:
+	print("Shooting!")
+	if !can_shoot:
+		print("Can't shoot")
 		return
+		
 	can_shoot = false
 
-	for i in current_weapon.bullet_count:
+	for i in bullet_count:
 		create_bullet(i)
-	shot_fired.emit(current_weapon)
+	shot_fired.emit()
 
-	await get_tree().create_timer(1.0 / current_weapon.fire_rate).timeout
+	await get_tree().create_timer(1.0 / fire_rate).timeout
 	can_shoot = true
 
 ### NEED TO FIX!
-func burst(): # Rapid fire 25 snowballs (E Ability) 
-	if current_weapon == null or !can_shoot:
+func burst(): # Rapid fire 25 snowballs (E Ability)
+	print("Shooting!") 
+	if !can_shoot:
+		print("Can't shoot")
 		return
-	can_shoot = false
+		
+	can_shoot_burst = false
 
-	for i in current_weapon.burst_size:
+	for i in burst_size:
+		print("Bullet shot!")
 		create_bullet(i)
-		shot_fired.emit(current_weapon)
-
-		if i < current_weapon.burst_size - 1:
-			await get_tree().create_timer(current_weapon.time_tween_shots).timeout
-			
-	can_shoot = true
-	await get_tree().create_timer(current_weapon.burst_cooldown).timeout
-
+		shot_fired.emit()
+		await get_tree().create_timer(time_tween_shots).timeout
+		
+	await get_tree().create_timer(burst_cooldown).timeout
+	can_shoot_burst = true
+	
 func create_bullet(i: int):
-	var new_bullet : Node2D = current_weapon.bullet_scene.instantiate()
+	var new_bullet : Node2D = bullet_scene.instantiate()
 	new_bullet.global_position = firing_point.global_position
 
-	if current_weapon.bullet_count == 1:
-		new_bullet.global_rotation = firing_point.global_rotation + randf_range(-current_weapon.arc, current_weapon.arc)
+	if bullet_count == 1:
+		new_bullet.global_rotation = firing_point.global_rotation + randf_range(-arc, arc)
 	else:
-		var arc_rad = deg_to_rad(current_weapon.arc)
-		var increment = arc_rad / (current_weapon.bullet_count - 1)
+		var arc_rad = deg_to_rad(arc)
+		var increment = arc_rad / (bullet_count - 1)
 		new_bullet.global_rotation = (
-			global_rotation + randf_range(-current_weapon.arc, current_weapon.arc) +
+			global_rotation + randf_range(-arc, arc) +
 			increment * i -
 			arc_rad / 2
 		)
