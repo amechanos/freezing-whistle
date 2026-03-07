@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8fb6x1fn0dr8"]
+
+[ext_resource type="Script" uid="uid://d2tlhrj66xgnx" path="res://freeze_area/freeze_area.gd" id="1_4404f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8uh7m"]
+radius = 150.0
+
+[node name="FreezeArea" type="Area2D"]
+script = ExtResource("1_4404f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8uh7m")
+debug_color = Color(0.3764706, 0.6, 0.69803923, 0.41960785)
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="." to="." method="in_area"]
+[connection signal="body_entered" from="." to="." method="in_area"]
+[connection signal="timeout" from="Timer" to="." method="unfreeze"]

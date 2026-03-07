@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4svxlcx38n8c"]
+
+[ext_resource type="Script" uid="uid://cibryl1cvpy4p" path="res://enemies/src/basic_enemy.gd" id="1_6ofcp"]
+[ext_resource type="Script" uid="uid://b56rc5l363sun" path="res://components/health_component.gd" id="2_5xrap"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6uqi0"]
+
+[node name="BasicEnemy" type="Area2D"]
+script = ExtResource("1_6ofcp")
+
+[node name="HealthComponent" type="Node2D" parent="."]
+script = ExtResource("2_5xrap")
+metadata/_custom_type_script = "uid://b56rc5l363sun"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6uqi0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="died" from="HealthComponent" to="." method="kill"]

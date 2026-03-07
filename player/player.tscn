@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://tyba4mvbi6gv"]
+
+[ext_resource type="Script" uid="uid://cly6668x6qhe7" path="res://player/player.gd" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://cn0ou7rcilhol" path="res://weapons/src/weapon_handler.gd" id="2_onrkg"]
+[ext_resource type="Resource" uid="uid://c87tuvgyqjhsv" path="res://weapons/basic_weapon.tres" id="3_hqtel"]
+[ext_resource type="Script" uid="uid://b56rc5l363sun" path="res://components/health_component.gd" id="3_i3pqv"]
+[ext_resource type="Script" uid="uid://ckhyssj1uux5o" path="res://components/freeze_component.gd" id="5_qjkh3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sh265"]
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_4flbx")
+
+[node name="WeaponHolder" type="Node2D" parent="."]
+script = ExtResource("2_onrkg")
+current_weapon = ExtResource("3_hqtel")
+metadata/_custom_type_script = "uid://cn0ou7rcilhol"
+
+[node name="HealthComponent" type="Node2D" parent="."]
+script = ExtResource("3_i3pqv")
+metadata/_custom_type_script = "uid://b56rc5l363sun"
+
+[node name="FreezeComponent" type="Node2D" parent="."]
+script = ExtResource("5_qjkh3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_sh265")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+rotation = -1.5707964
+
+[node name="FiringPoint" type="Marker2D" parent="."]
+position = Vector2(15, 0)
