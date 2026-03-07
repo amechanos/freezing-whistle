@@ -1,0 +1,12 @@
+res://player/player.tscn
+res://bullets/basic_bullet.tscn
+res://enemies/basic_enemy.tscn
+res://test.tscn
+res://test.gd
+res://enemies/src/basic_enemy.gd
+res://bullets/src/basic_bullet.gd
+res://player/player.gd
+res://components/health_component.gd
+res://weapons/src/weapon_data.gd
+res://weapons/src/weapon_handler.gd
+res://freeze_area/freeze_area.gd
