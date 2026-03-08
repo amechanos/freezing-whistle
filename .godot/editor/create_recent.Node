@@ -1,5 +1,8 @@
 <<<<<<< Updated upstream
+<<<<<<< HEAD
 <<<<<<< Updated upstream
+=======
+>>>>>>> 88172775f3f0d332bfbca45bec3a182bbb69d4e6
 Node2D
 Timer
 CollisionShape2D
@@ -14,6 +17,7 @@ CharacterBody2D
 Control
 AnimatedSprite2D
 =======
+<<<<<<< HEAD
 Label
 Button
 TextureProgressBar
@@ -44,4 +48,20 @@ VBoxContainer
 Node2D
 Camera2D
 Timer
+=======
+ProgressBar
+Button
+Node2D
+AnimationPlayer
+CollisionShape2D
+Area2D
+Panel
+Control
+Node
+Line2D
+TextureRect
+Timer
+CanvasLayer
+Label
+>>>>>>> 88172775f3f0d332bfbca45bec3a182bbb69d4e6
 >>>>>>> Stashed changes

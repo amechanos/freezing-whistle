@@ -1,9 +1,11 @@
 extends Control
 
+@onready var currency_label : Label = $CurrencyLabel
+
 var upgrade_data = {
-	"health": {"category": "gun", "cost": 25, "level" : 1, "prop_name": "health", "cost_multiplier": 1.25, "stat_increase": 25},
 	"damage_gun": {"category": "gun", "cost": 20, "level": 1, "prop_name": "bullet_damage", "cost_multiplier": 1.6, "stat_increase": 5.0},
 	"firerate_gun": {"category": "gun", "cost": 25, "level": 1, "prop_name": "fire_rate", "cost_multiplier": 1.4, "stat_increase": -0.1}, 
+	"bulletcount_gun": {"category": "gun", "cost": 25, "level": 1, "prop_name": "bullet_count", "cost_multiplier": 1.4, "stat_increase": 1}, 
 	"cooldown_freeze": {"category": "freeze", "cost": 30, "level": 1, "prop_name": "freezeCooldown", "cost_multiplier": 1.5, "stat_increase": -0.5},
 	"duration_freeze": {"category": "freeze", "cost": 30, "level": 1, "prop_name": "freezeDur", "cost_multiplier": 1.5, "stat_increase": 0.5},
 	"size_freeze": {"category": "freeze", "cost": 30, "level": 1, "prop_name": "freezeSize", "cost_multiplier": 1.5, "stat_increase": 10.0},
@@ -12,17 +14,18 @@ var upgrade_data = {
 }
 
 func _ready() -> void:
+	currency_label.text = "Coins:" + str(Global.currency)
 	for key in upgrade_data.keys():
 		var cat = upgrade_data[key]["category"]
 		var button : Button = get_node("VBoxContainer/" + cat + "/" + key + "/Button")
 		
 		# Bind the specific upgrade key to the button press
-		button.pressed.connect(_on_buy_button_pressed.bind(key))
-		
+		button.pressed.connect(_on_buy_button_released.bind(key))
+	
 	update_all_ui()
+	Global.round_ended.connect(update_all_ui)
 
 func update_all_ui() -> void:
-	$balance.text = "Balance: $" + str(Global.currency)
 	for key in upgrade_data.keys():
 		var data = upgrade_data[key]
 		var cat = data["category"]
@@ -30,6 +33,9 @@ func update_all_ui() -> void:
 		
 		var label : Label = get_node("VBoxContainer/" + cat + "/" + key + "/Label")
 		var button : Button = get_node("VBoxContainer/" + cat + "/" + key + "/Button")
+		var coin_label : Label = $CurrencyLabel
+		
+		coin_label.text = "Coins:" + str(Global.currency)
 		
 		# 1. Dynamically read the current stat directly from amProps
 		var current_stat = amProps.get(prop)
@@ -41,7 +47,7 @@ func update_all_ui() -> void:
 		button.text = "Buy: $" + str(data["cost"])
 		button.disabled = Global.currency < data["cost"]
 
-func _on_buy_button_pressed(upgrade_key: String) -> void:
+func _on_buy_button_released(upgrade_key: String) -> void:
 	var data = upgrade_data[upgrade_key]
 	var prop = data["prop_name"]
 	
@@ -59,6 +65,3 @@ func _on_buy_button_pressed(upgrade_key: String) -> void:
 		
 		# Refresh UI to show the new stat and new cost
 		update_all_ui()
-
-func _on_continue_pressed() -> void:
-	get_tree().change_scene_to_file("res://test.tscn")

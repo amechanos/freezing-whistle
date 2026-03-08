@@ -1,0 +1,14 @@
+CHANGES
+Upgrades menu has been moved to the player can be found under playerUI
+Increased the player speed 
+Zoomed out the camera
+Changed the bullet shooting style
+added simple animations to enemy
+
+HIT LIST
+pause menu
+options menu
+game over screen
+
+BUGS
+Bullet count still doesnt work Im not sure as to why

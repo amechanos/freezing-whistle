@@ -1,31 +1,50 @@
 63f7b34db8d8cdea90c76aacccf841ec
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 ::res://::1772863684
+=======
+::res://::1772961683
+changes.txt::TextFile::-1::1772961683::0::1::::<><><>0<>0<><>::
+icon.svg::CompressedTexture2D::3142214538753491067::1772835555::1772935304::1::::<><><>0<>0<>662b3c801af87cc8f3b9c4b27bf6981b<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+README.md::TextFile::-1::1772961683::0::1::::<><><>0<>0<><>::
+test.tscn::PackedScene::6254353347808389020::1772961683::0::1::::<><><>0<>0<><>::uid://tyba4mvbi6gv::::res://player/player.tscn<>uid://bf1vinxff6ip2::::res://assets/background.jpg
+upgrades.gd::GDScript::6255472124365705542::1772961683::0::1::::<>Control<><>0<>0<><>::
+upgrades.tscn::PackedScene::7339807156383091617::1772961683::0::1::::<><><>0<>0<><>::uid://cvegyhatuu16a::::res://upgrades.gd<>uid://dwy4cxx2ox35k::::res://fonts/Iceberg/Iceberg-Regular.ttf
+::res://assets/::1772961683
+enemy.png::CompressedTexture2D::4034046220856751836::1772961683::1772961689::1::::<><><>0<>0<>c3cb18144f7779f1309f279a846cceb5<>res://.godot/imported/enemy.png-63f114c7bb3f2105c232c34f647cbc2d.ctex::
+enemy_arm.png::CompressedTexture2D::5953093592411951929::1772961683::1772961683::1::::<><><>0<>0<>a4bc3574de47fe3803bd23d0300dc3c8<>res://.godot/imported/enemy_arm.png-2bcc3d8fb1f75fee6aa9b4212962ee8c.ctex::
+::res://bullets/::1772961683
+basic_bullet.tscn::PackedScene::5000883904700088877::1772961683::0::1::::<><><>0<>0<><>::uid://dkhwg1pcf8u1i::::res://bullets/src/basic_bullet.gd<>uid://cp3mo8kdq6vsx::::res://assets/bullet.png
+::res://bullets/src/::1772961681
+basic_bullet.gd::GDScript::7876949009220380580::1772961681::0::1::::BasicBullet<>Node2D<><>0<>0<><>::
+::res://components/::1772961683
+freeze_component.gd::GDScript::5490670760694031430::1772961681::0::1::::FreezeComponent<>Node2D<><>0<>0<><>::
+health_component.gd::GDScript::4557119057682858509::1772961683::0::1::::HealthComponent<>Node2D<><>0<>0<><>::
+::res://enemies/::1772961683
+basic_enemy.tscn::PackedScene::6846793344500331328::1772961683::0::1::::<><><>0<>0<><>::uid://cibryl1cvpy4p::::res://enemies/src/basic_enemy.gd<>uid://b56rc5l363sun::::res://components/health_component.gd<>uid://bjijhske681t4::::res://assets/enemy.png<>uid://cq2yt1pq5uonh::::res://assets/enemy_arm.png
+::res://enemies/src/::1772961683
+basic_enemy.gd::GDScript::5337492160216586961::1772961683::0::1::::BasicEnemy<>FreezeableObject<><>0<>0<><>::
+::res://freeze_area/::1772961681
+>>>>>>> 88172775f3f0d332bfbca45bec3a182bbb69d4e6
 freezeable_object.gd::GDScript::3681572668198196125::1772862532::0::1::::FreezeableObject<>Area2D<><>0<>0<><>::
-icon.svg::CompressedTexture2D::3142214538753491067::1772835555::1772835562::1::::<><><>0<>0<>662b3c801af87cc8f3b9c4b27bf6981b<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-test.tscn::PackedScene::1928183185342831130::1772863574::0::1::::<><><>0<>0<><>::uid://tyba4mvbi6gv::::res://player/player.tscn<>uid://c4svxlcx38n8c::::res://enemies/basic_enemy.tscn
-::res://bullets/::1772863684
-basic_bullet.tscn::PackedScene::5000883904700088877::1772863684::0::1::::<><><>0<>0<><>::uid://dkhwg1pcf8u1i::::res://bullets/src/basic_bullet.gd<>uid://bk1d2xn86mcjr::::res://icon.svg
-::res://bullets/src/::1772863680
-basic_bullet.gd::GDScript::7876949009220380580::1772862525::0::1::::BasicBullet<>FreezeableObject<><>0<>0<><>::
-::res://components/::1772863399
-freeze_component.gd::GDScript::5490670760694031430::1772863399::0::1::::FreezeComponent<>Node2D<><>0<>0<><>::
-health_component.gd::GDScript::4557119057682858509::1772859430::0::1::::HealthComponent<>Node2D<><>0<>0<><>::
-::res://enemies/::1772860745
-basic_enemy.tscn::PackedScene::6846793344500331328::1772860745::0::1::::<><><>0<>0<><>::uid://cibryl1cvpy4p::::res://enemies/src/basic_enemy.gd<>uid://b56rc5l363sun::::res://components/health_component.gd
-::res://enemies/src/::1772862527
-basic_enemy.gd::GDScript::5337492160216586961::1772862527::0::1::::BasicEnemy<>FreezeableObject<><>0<>0<><>::
-::res://freeze_area/::1772863659
-freeze_area.gd::GDScript::9094265302362106801::1772863370::0::1::::FreezeArea<>Area2D<><>0<>0<><>::
-freeze_area.tscn::PackedScene::7099512421262892199::1772863656::0::1::::<><><>0<>0<><>::uid://d2tlhrj66xgnx::::res://freeze_area/freeze_area.gd
-::res://player/::1772863653
-player.gd::GDScript::5596402980178283604::1772863574::0::1::::<>CharacterBody2D<><>0<>0<><>::
-player.tscn::PackedScene::1383195354883454285::1772863254::0::1::::<><><>0<>0<><>::uid://cly6668x6qhe7::::res://player/player.gd<>uid://cn0ou7rcilhol::::res://weapons/src/weapon_handler.gd<>uid://c87tuvgyqjhsv::::res://weapons/basic_weapon.tres<>uid://b56rc5l363sun::::res://components/health_component.gd<>uid://ckhyssj1uux5o::::res://components/freeze_component.gd
-::res://weapons/::1772863684
-basic_weapon.tres::Resource/WeaponData::7156323747683217885::1772863684::0::1::::<><><>0<>0<><>::uid://cdip3eldr5vyj::::res://bullets/basic_bullet.tscn<>uid://bk1d2xn86mcjr::::res://icon.svg<>uid://b26g2yav3ng42::::res://weapons/src/weapon_data.gd
-::res://weapons/src/::1772860975
+freeze_area.gd::GDScript::9094265302362106801::1772961681::0::1::::FreezeArea<>Area2D<><>0<>0<><>::
+freeze_area.tscn::PackedScene::7099512421262892199::1772961681::0::1::::<><><>0<>0<><>::uid://d2tlhrj66xgnx::::res://freeze_area/freeze_area.gd
+::res://globals/::1772961683
+global.gd::GDScript::656567689585471941::1772961683::0::1::::<>Node2D<><>0<>0<><>::
+::res://player/::1772961683
+player.gd::GDScript::5596402980178283604::1772961683::0::1::::Player<>CharacterBody2D<><>0<>0<><>::
+player.tscn::PackedScene::1383195354883454285::1772961683::0::1::::<><><>0<>0<><>::uid://cly6668x6qhe7::::res://player/player.gd<>uid://cn0ou7rcilhol::::res://weapons/src/weapon_handler.gd<>uid://b56rc5l363sun::::res://components/health_component.gd<>uid://ckhyssj1uux5o::::res://components/freeze_component.gd<>uid://ce2jnwwqdufv6::::res://assets/Player.png<>uid://bt2rmwjlo54ki::::res://player/player_ui.gd<>uid://dwy4cxx2ox35k::::res://fonts/Iceberg/Iceberg-Regular.ttf<>uid://cvegyhatuu16a::::res://upgrades.gd
+player_ui.gd::GDScript::3776801700515873216::1772961683::0::1::::PlayerUI<>CanvasLayer<><>0<>0<><>::
+player_ui.tscn::PackedScene::5168649430913244236::1772961683::0::1::::<><><>0<>0<><>::uid://bt2rmwjlo54ki::::res://player/player_ui.gd<>uid://dwy4cxx2ox35k::::res://fonts/Iceberg/Iceberg-Regular.ttf<>uid://dctps0sn3mrp6::::res://upgrades.tscn
+::res://scenes/::1772961683
+main_menu.gd::GDScript::6208561615394549815::1772961683::0::1::::<>Node<><>0<>0<><>::
+main_menu.tscn::PackedScene::8809331944314101035::1772961683::0::1::::<><><>0<>0<><>::uid://cupqdq0o5xtrr::::res://scenes/main_menu.gd
+::res://weapons/::1772961681
+basic_weapon.tres::Resource/WeaponData::-1::1772961681::0::1::::<><><>0<>0<><>::
+::res://weapons/src/::1772961683
 damage_data.gd::GDScript::1464104249849692606::1772858798::0::1::::DamageData<>Node<><>0<>0<><>::
+<<<<<<< HEAD
 weapon_data.gd::GDScript::4345928952240343125::1772860975::0::1::::WeaponData<>Resource<><>0<>0<><>::
 weapon_handler.gd::GDScript::5737793239419828059::1772860124::0::1::::WeaponHolder<>Node2D<><>0<>0<><>::
 =======
@@ -94,3 +113,7 @@ weapon_handler.gd::GDScript::5737793239419828059::1772974860::0::1::::WeaponHold
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
+=======
+weapon_data.gd::GDScript::-1::1772961681::0::1::::WeaponData<>Resource<><>0<>0<><>::
+weapon_handler.gd::GDScript::5737793239419828059::1772961683::0::1::::WeaponHolder<>Node2D<><>0<>0<><>::
+>>>>>>> 88172775f3f0d332bfbca45bec3a182bbb69d4e6

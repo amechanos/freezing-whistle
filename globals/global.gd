@@ -1,14 +1,76 @@
-extends Node
+extends Node2D
 
+const STARTING_KILL_COUNT_GOAL = 5
+const KILL_COUNT_INCREASE = 5
+const MAX_ENEMIES = 25
+
+var spawner : Timer
+var player : Player
+
+var window_width = DisplayServer.window_get_size().x
+var window_height = DisplayServer.window_get_size().y
+
+var current_round : int = 0
+var current_enemy_kill_count : int = 0
+var current_kill_goal : int = STARTING_KILL_COUNT_GOAL
 var currency = 0
-var killed = 0
-var t = clampf(killed / 250.0, 0.0, 1.0)
 
-func spawn_enemy(container, screen_size):
+signal currency_updated(new_amount:int)
+signal round_started(_current_round:int)
+signal round_ended
+
+func set_up() -> void:
+	await get_tree().create_timer(1.0).timeout
+	print('timeout')
+	spawner = Timer.new()
+	spawner.wait_time = randf_range(1.0, 5.0)
+	spawner.timeout.connect(_on_timer_timeout)
+	get_tree().current_scene.add_child(spawner)
+	player = get_tree().get_first_node_in_group('player')
+	start_round()
+
+func start_round() -> void:
+	current_round += 1
+	round_started.emit(current_round)
+	spawner.start()
+	player.global_position = Vector2(window_width/2, window_height/2)
+	print('starting round')
+
+func end_round():
+	#Stop the timer and wait for upgrades to be choosen
+	spawner.stop()
+	
+	#set the new kill goal
+	current_kill_goal = clampi(STARTING_KILL_COUNT_GOAL * current_round, STARTING_KILL_COUNT_GOAL, MAX_ENEMIES)
+	
+	#free all current enemies
+	for enemy in get_tree().get_nodes_in_group('enemies'):
+		enemy.queue_free()
+	
+	#send out a signal to let everything know the rounds ended ie player ui and player
+	round_ended.emit()
+	current_enemy_kill_count = 0
+
+func _on_timer_timeout() -> void:
+	spawn_enemy()
+	spawner.wait_time = randf_range(1.0, 5.0)
+
+func enemy_died(coin_amount : int):
+	#when an enemy died they send out a signal that connects here and updates values below
+	currency += coin_amount
+	currency_updated.emit(currency)
+	current_enemy_kill_count += 1
+	
+	if current_enemy_kill_count >= current_kill_goal:
+		end_round()
+
+func spawn_enemy():
 	var enemyScene = preload("res://enemies/basic_enemy.tscn")
 	var newEnemy = enemyScene.instantiate()
 	
-	var cam = get_viewport().get_camera_2d()
+	# 1. Get the current camera to see where the player is looking
+	var cam = get_viewport().get_camera_2d() 
+	var screen_size = get_viewport_rect().size * (cam.zoom + Vector2(1.5, 1.5)) #brute forced this bitch to work with zoom im sure theres a better way to do this ignore the magic numbers
 	
 	var cam_pos = cam.get_screen_center_position() if cam else Vector2.ZERO
 	
@@ -32,45 +94,20 @@ func spawn_enemy(container, screen_size):
 		3: # Right (To the right of camera view)
 			spawn_pos.x = bottom_right.x + margin
 			spawn_pos.y = randf_range(top_left.y, bottom_right.y)
-	
+			
 	newEnemy.global_position = spawn_pos
-	newEnemy.damage = int(randi_range(5, min(20 + int(55 * t * t), 75)))
-	newEnemy.speed = randf_range(10.0, lerp(5.0, 65.0, t * t))
 	
-	var hp_node = newEnemy.get_node("HealthComponent")
-	var scale = lerp(1.0, 3.5, t * t)
+	#Moved health setting to health component
 
-	if hp_node:
-		hp_node.max_health = int(randi_range(50, 200) * scale)
-		hp_node.current_health = hp_node.max_health
+	get_tree().current_scene.add_child(newEnemy)
 
-	container.add_child(newEnemy)
-	
-func updateUI():
-	var canvas = get_tree().current_scene.get_node("Player").get_node("Camera2D").get_node("UI")
-	var kills = canvas.get_node("kills").get_node("Label")
-	var money = canvas.get_node("currency").get_node("Label")
-	
-	currency += int(randi_range(1, 25) * lerp(1.0, 3.0, t * t))
-	killed += 1
-	
-	kills.text = "Killed: " + str(killed)
-	money.text = "Currency: $" + str(currency)
-	
-const SHOP_THRESHOLDS: Array[int] = [2, 30, 60, 100, 150, 210, 250]
-var threshold_index: int = 0
+func load_game_scene():
+	get_tree().change_scene_to_file("res://test.tscn")
+	set_up()
 
-func _check_threshold() -> void:
-	if threshold_index >= SHOP_THRESHOLDS.size():
-		return
-	if killed >= SHOP_THRESHOLDS[threshold_index]:
-		threshold_index += 1
-		warp()
-
-func warp() -> void:
-	var is_final = threshold_index >= SHOP_THRESHOLDS.size()
-
-	if is_final:
-		get_tree().change_scene_to_file("res://menu.tscn")
-	else:
-		get_tree().change_scene_to_file("res://upgrades.tscn")
+func end_game():
+	currency = 0
+	current_round = 1
+	current_kill_goal = 5
+	current_enemy_kill_count = 0
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn") #Change this to show game over screen

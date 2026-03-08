@@ -1,39 +1,60 @@
-[gd_scene format=3 uid="uid://dctps0sn3mrp6"]
+[gd_scene load_steps=5 format=3 uid="uid://dctps0sn3mrp6"]
 
 [ext_resource type="Script" uid="uid://cvegyhatuu16a" path="res://upgrades.gd" id="1_k80ou"]
 [ext_resource type="FontFile" uid="uid://dwy4cxx2ox35k" path="res://fonts/Iceberg/Iceberg-Regular.ttf" id="2_alr6r"]
 
-[node name="upgrades" type="Control" unique_id=1137718071]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_alr6r"]
+offset = Vector3(137.93, 0, 0)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ba88x"]
+noise = SubResource("FastNoiseLite_alr6r")
+
+[node name="upgrades" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_k80ou")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1880900835]
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_ba88x")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 64.0
-offset_top = 128.0
-offset_right = 1216.0
-offset_bottom = 640.0
+anchor_left = 0.05
+anchor_top = 0.17777778
+anchor_right = 1.0
+anchor_bottom = 1.0
 theme_override_constants/separation = 64
 alignment = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="gun" type="HBoxContainer" parent="VBoxContainer" unique_id=106068673]
+[node name="whistle" type="HBoxContainer" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 64
 
-[node name="health" type="Panel" parent="VBoxContainer/gun" unique_id=1604185726]
+[node name="damage_whistle" type="Panel" parent="VBoxContainer/whistle"]
 custom_minimum_size = Vector2(320, 96)
 layout_mode = 2
 
-[node name="Button" type="Button" parent="VBoxContainer/gun/health" unique_id=1331389375]
+[node name="Button" type="Button" parent="VBoxContainer/whistle/damage_whistle"]
 layout_mode = 0
 offset_left = 232.0
 offset_top = 16.0
-offset_right = 296.0
+offset_right = 304.0
 offset_bottom = 80.0
 text = "$100"
 
-[node name="Label" type="Label" parent="VBoxContainer/gun/health" unique_id=619025029]
+[node name="Label" type="Label" parent="VBoxContainer/whistle/damage_whistle"]
 layout_mode = 0
 offset_left = 16.0
 offset_top = 50.0
@@ -43,135 +64,7 @@ theme_override_font_sizes/font_size = 14
 text = "test"
 vertical_alignment = 2
 
-[node name="name" type="Label" parent="VBoxContainer/gun/health" unique_id=2145444319]
-layout_mode = 0
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 240.0
-offset_bottom = 50.0
-theme_override_fonts/font = ExtResource("2_alr6r")
-theme_override_font_sizes/font_size = 24
-text = "Base Health"
-vertical_alignment = 2
-
-[node name="damage_gun" type="Panel" parent="VBoxContainer/gun" unique_id=1619642964]
-custom_minimum_size = Vector2(320, 96)
-layout_mode = 2
-
-[node name="Button" type="Button" parent="VBoxContainer/gun/damage_gun" unique_id=1042472446]
-layout_mode = 0
-offset_left = 232.0
-offset_top = 16.0
-offset_right = 296.0
-offset_bottom = 80.0
-text = "$100"
-
-[node name="Label" type="Label" parent="VBoxContainer/gun/damage_gun" unique_id=1318468289]
-layout_mode = 0
-offset_left = 16.0
-offset_top = 50.0
-offset_right = 240.0
-offset_bottom = 82.0
-theme_override_font_sizes/font_size = 14
-text = "test"
-vertical_alignment = 2
-
-[node name="name" type="Label" parent="VBoxContainer/gun/damage_gun" unique_id=989409608]
-layout_mode = 0
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 240.0
-offset_bottom = 50.0
-theme_override_fonts/font = ExtResource("2_alr6r")
-theme_override_font_sizes/font_size = 24
-text = "Snowball Damage"
-vertical_alignment = 2
-
-[node name="firerate_gun" type="Panel" parent="VBoxContainer/gun" unique_id=32120890]
-custom_minimum_size = Vector2(320, 96)
-layout_mode = 2
-
-[node name="Button" type="Button" parent="VBoxContainer/gun/firerate_gun" unique_id=1550693684]
-layout_mode = 0
-offset_left = 232.0
-offset_top = 16.0
-offset_right = 296.0
-offset_bottom = 80.0
-text = "$100"
-
-[node name="Label" type="Label" parent="VBoxContainer/gun/firerate_gun" unique_id=1284888229]
-layout_mode = 0
-offset_left = 16.0
-offset_top = 50.0
-offset_right = 240.0
-offset_bottom = 82.0
-theme_override_font_sizes/font_size = 14
-text = "test"
-vertical_alignment = 2
-
-[node name="name" type="Label" parent="VBoxContainer/gun/firerate_gun" unique_id=1158255118]
-layout_mode = 0
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 240.0
-offset_bottom = 50.0
-theme_override_fonts/font = ExtResource("2_alr6r")
-theme_override_font_sizes/font_size = 24
-text = "Snowball Firerate"
-vertical_alignment = 2
-
-[node name="burst" type="HBoxContainer" parent="VBoxContainer" unique_id=1889291735]
-layout_mode = 2
-theme_override_constants/separation = 64
-
-[node name="cooldown_burst" type="Panel" parent="VBoxContainer/burst" unique_id=515410560]
-custom_minimum_size = Vector2(320, 96)
-layout_mode = 2
-
-[node name="Button" type="Button" parent="VBoxContainer/burst/cooldown_burst" unique_id=1018253773]
-layout_mode = 0
-offset_left = 232.0
-offset_top = 16.0
-offset_right = 296.0
-offset_bottom = 82.0
-text = "$100"
-
-[node name="Label" type="Label" parent="VBoxContainer/burst/cooldown_burst" unique_id=1910759656]
-layout_mode = 0
-offset_left = 16.0
-offset_top = 50.0
-offset_right = 240.0
-offset_bottom = 82.0
-theme_override_font_sizes/font_size = 14
-text = "test"
-vertical_alignment = 2
-
-[node name="name" type="Label" parent="VBoxContainer/burst/cooldown_burst" unique_id=252198217]
-layout_mode = 0
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 240.0
-offset_bottom = 50.0
-theme_override_fonts/font = ExtResource("2_alr6r")
-theme_override_font_sizes/font_size = 24
-text = "Burst Cooldown"
-vertical_alignment = 2
-
-[node name="duration_burst" type="Panel" parent="VBoxContainer/burst" unique_id=269214409]
-custom_minimum_size = Vector2(320, 96)
-layout_mode = 2
-
-[node name="Label" type="Label" parent="VBoxContainer/burst/duration_burst" unique_id=2006786750]
-layout_mode = 0
-offset_left = 16.0
-offset_top = 50.0
-offset_right = 240.0
-offset_bottom = 82.0
-theme_override_font_sizes/font_size = 14
-text = "test"
-vertical_alignment = 2
-
-[node name="name" type="Label" parent="VBoxContainer/burst/duration_burst" unique_id=1001903670]
+[node name="name" type="Label" parent="VBoxContainer/whistle/damage_whistle"]
 layout_mode = 0
 offset_left = 16.0
 offset_top = 16.0
@@ -182,23 +75,11 @@ theme_override_font_sizes/font_size = 24
 text = "Burst Duration"
 vertical_alignment = 2
 
-[node name="Button" type="Button" parent="VBoxContainer/burst/duration_burst" unique_id=937184572]
-layout_mode = 0
-offset_left = 232.0
-offset_top = 16.0
-offset_right = 296.0
-offset_bottom = 82.0
-text = "$100"
-
-[node name="freeze" type="HBoxContainer" parent="VBoxContainer" unique_id=43931375]
-layout_mode = 2
-theme_override_constants/separation = 64
-
-[node name="cooldown_freeze" type="Panel" parent="VBoxContainer/freeze" unique_id=297892417]
+[node name="radius_whistle" type="Panel" parent="VBoxContainer/whistle"]
 custom_minimum_size = Vector2(320, 96)
 layout_mode = 2
 
-[node name="Button" type="Button" parent="VBoxContainer/freeze/cooldown_freeze" unique_id=1628244556]
+[node name="Button" type="Button" parent="VBoxContainer/whistle/radius_whistle"]
 layout_mode = 0
 offset_left = 232.0
 offset_top = 16.0
@@ -206,7 +87,44 @@ offset_right = 296.0
 offset_bottom = 80.0
 text = "$100"
 
-[node name="Label" type="Label" parent="VBoxContainer/freeze/cooldown_freeze" unique_id=1261139830]
+[node name="Label" type="Label" parent="VBoxContainer/whistle/radius_whistle"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 50.0
+offset_right = 240.0
+offset_bottom = 82.0
+theme_override_font_sizes/font_size = 18
+text = "test"
+vertical_alignment = 2
+
+[node name="name" type="Label" parent="VBoxContainer/whistle/radius_whistle"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 240.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("2_alr6r")
+theme_override_font_sizes/font_size = 24
+text = "Burst Duration"
+vertical_alignment = 2
+
+[node name="gun" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="damage_gun" type="Panel" parent="VBoxContainer/gun"]
+custom_minimum_size = Vector2(320, 96)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/gun/damage_gun"]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 16.0
+offset_right = 296.0
+offset_bottom = 80.0
+text = "$100"
+
+[node name="Label" type="Label" parent="VBoxContainer/gun/damage_gun"]
 layout_mode = 0
 offset_left = 16.0
 offset_top = 50.0
@@ -216,7 +134,147 @@ theme_override_font_sizes/font_size = 14
 text = "test"
 vertical_alignment = 2
 
-[node name="name" type="Label" parent="VBoxContainer/freeze/cooldown_freeze" unique_id=529735001]
+[node name="name" type="Label" parent="VBoxContainer/gun/damage_gun"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 240.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("2_alr6r")
+theme_override_font_sizes/font_size = 24
+text = "Snowball Damage"
+vertical_alignment = 2
+
+[node name="firerate_gun" type="Panel" parent="VBoxContainer/gun"]
+custom_minimum_size = Vector2(320, 96)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/gun/firerate_gun"]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 16.0
+offset_right = 296.0
+offset_bottom = 80.0
+text = "$100"
+
+[node name="Label" type="Label" parent="VBoxContainer/gun/firerate_gun"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 50.0
+offset_right = 240.0
+offset_bottom = 82.0
+theme_override_font_sizes/font_size = 14
+text = "test"
+vertical_alignment = 2
+
+[node name="name" type="Label" parent="VBoxContainer/gun/firerate_gun"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 240.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("2_alr6r")
+theme_override_font_sizes/font_size = 24
+text = "Snowball Firerate"
+vertical_alignment = 2
+
+[node name="burst" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="cooldown_burst" type="Panel" parent="VBoxContainer/burst"]
+custom_minimum_size = Vector2(320, 96)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/burst/cooldown_burst"]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 16.0
+offset_right = 296.0
+offset_bottom = 82.0
+text = "$100"
+
+[node name="Label" type="Label" parent="VBoxContainer/burst/cooldown_burst"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 50.0
+offset_right = 240.0
+offset_bottom = 82.0
+theme_override_font_sizes/font_size = 14
+text = "test"
+vertical_alignment = 2
+
+[node name="name" type="Label" parent="VBoxContainer/burst/cooldown_burst"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 240.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("2_alr6r")
+theme_override_font_sizes/font_size = 24
+text = "Burst Cooldown"
+vertical_alignment = 2
+
+[node name="duration_burst" type="Panel" parent="VBoxContainer/burst"]
+custom_minimum_size = Vector2(320, 96)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/burst/duration_burst"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 50.0
+offset_right = 240.0
+offset_bottom = 82.0
+theme_override_font_sizes/font_size = 14
+text = "test"
+vertical_alignment = 2
+
+[node name="name" type="Label" parent="VBoxContainer/burst/duration_burst"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 240.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("2_alr6r")
+theme_override_font_sizes/font_size = 24
+text = "Burst Duration"
+vertical_alignment = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/burst/duration_burst"]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 16.0
+offset_right = 296.0
+offset_bottom = 82.0
+text = "$100"
+
+[node name="freeze" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="cooldown_freeze" type="Panel" parent="VBoxContainer/freeze"]
+custom_minimum_size = Vector2(320, 96)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/freeze/cooldown_freeze"]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 16.0
+offset_right = 296.0
+offset_bottom = 80.0
+text = "$100"
+
+[node name="Label" type="Label" parent="VBoxContainer/freeze/cooldown_freeze"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 50.0
+offset_right = 240.0
+offset_bottom = 82.0
+theme_override_font_sizes/font_size = 14
+text = "test"
+vertical_alignment = 2
+
+[node name="name" type="Label" parent="VBoxContainer/freeze/cooldown_freeze"]
 layout_mode = 0
 offset_left = 16.0
 offset_top = 16.0
@@ -227,11 +285,11 @@ theme_override_font_sizes/font_size = 24
 text = "Freeze Cooldown"
 vertical_alignment = 2
 
-[node name="duration_freeze" type="Panel" parent="VBoxContainer/freeze" unique_id=1557048533]
+[node name="duration_freeze" type="Panel" parent="VBoxContainer/freeze"]
 custom_minimum_size = Vector2(320, 96)
 layout_mode = 2
 
-[node name="Button" type="Button" parent="VBoxContainer/freeze/duration_freeze" unique_id=1521980630]
+[node name="Button" type="Button" parent="VBoxContainer/freeze/duration_freeze"]
 layout_mode = 0
 offset_left = 232.0
 offset_top = 16.0
@@ -239,7 +297,7 @@ offset_right = 296.0
 offset_bottom = 80.0
 text = "$100"
 
-[node name="Label" type="Label" parent="VBoxContainer/freeze/duration_freeze" unique_id=1409100424]
+[node name="Label" type="Label" parent="VBoxContainer/freeze/duration_freeze"]
 layout_mode = 0
 offset_left = 16.0
 offset_top = 50.0
@@ -249,7 +307,7 @@ theme_override_font_sizes/font_size = 14
 text = "test"
 vertical_alignment = 2
 
-[node name="name" type="Label" parent="VBoxContainer/freeze/duration_freeze" unique_id=1420259492]
+[node name="name" type="Label" parent="VBoxContainer/freeze/duration_freeze"]
 layout_mode = 0
 offset_left = 16.0
 offset_top = 16.0
@@ -260,11 +318,11 @@ theme_override_font_sizes/font_size = 24
 text = "Freeze Duration"
 vertical_alignment = 2
 
-[node name="size_freeze" type="Panel" parent="VBoxContainer/freeze" unique_id=12610205]
+[node name="size_freeze" type="Panel" parent="VBoxContainer/freeze"]
 custom_minimum_size = Vector2(320, 96)
 layout_mode = 2
 
-[node name="Button" type="Button" parent="VBoxContainer/freeze/size_freeze" unique_id=514415735]
+[node name="Button" type="Button" parent="VBoxContainer/freeze/size_freeze"]
 layout_mode = 0
 offset_left = 232.0
 offset_top = 16.0
@@ -272,7 +330,7 @@ offset_right = 296.0
 offset_bottom = 80.0
 text = "$100"
 
-[node name="Label" type="Label" parent="VBoxContainer/freeze/size_freeze" unique_id=388576408]
+[node name="Label" type="Label" parent="VBoxContainer/freeze/size_freeze"]
 layout_mode = 0
 offset_left = 16.0
 offset_top = 50.0
@@ -282,7 +340,7 @@ theme_override_font_sizes/font_size = 14
 text = "test"
 vertical_alignment = 2
 
-[node name="name" type="Label" parent="VBoxContainer/freeze/size_freeze" unique_id=71480639]
+[node name="name" type="Label" parent="VBoxContainer/freeze/size_freeze"]
 layout_mode = 0
 offset_left = 16.0
 offset_top = 16.0
@@ -293,35 +351,42 @@ theme_override_font_sizes/font_size = 24
 text = "Freeze Size"
 vertical_alignment = 2
 
-[node name="Label" type="Label" parent="." unique_id=548491791]
+[node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_right = 1280.0
-offset_bottom = 128.0
+anchor_right = 1.0
+anchor_bottom = 0.17777778
 theme_override_fonts/font = ExtResource("2_alr6r")
 theme_override_font_sizes/font_size = 48
 text = "UPGRADES"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="balance" type="Label" parent="." unique_id=1022070958]
-layout_mode = 0
-offset_top = 90.0
-offset_right = 1280.0
-offset_bottom = 154.0
+[node name="CurrencyLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.8888889
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_alr6r")
-theme_override_font_sizes/font_size = 24
-text = "Balance: $0"
+theme_override_font_sizes/font_size = 48
+text = "Coins:100"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="continue" type="Button" parent="." unique_id=488732918]
-layout_mode = 0
-offset_left = 512.0
-offset_top = 640.0
-offset_right = 768.0
-offset_bottom = 704.0
-theme_override_fonts/font = ExtResource("2_alr6r")
-theme_override_font_sizes/font_size = 24
-text = "CONTINUE"
-
-[connection signal="pressed" from="continue" to="." method="_on_continue_pressed"]
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.88100004
+anchor_top = 0.9110001
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.3199463
+offset_top = -7.920044
+grow_horizontal = 0
+grow_vertical = 0
+text = "Next"
+metadata/_edit_use_anchors_ = true
