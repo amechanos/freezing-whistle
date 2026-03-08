@@ -19,11 +19,20 @@ run/main_scene="uid://2qa5pa5pms7c"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*uid://jmbtrpojjhgf"
+amProps="*uid://c0hvk2wb4nexm"
+
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/mode="viewport"
+
+[gui]
+
+theme/custom_font="uid://xo0gbymvy8te"
 
 [input]
 

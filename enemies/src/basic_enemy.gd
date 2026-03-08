@@ -5,11 +5,10 @@ class_name BasicEnemy
 @onready var healthBar = $HP
 @onready var target : Node2D = get_tree().get_first_node_in_group('player')
 
-# Add a reference to your visual node
 @onready var sprite = $Sprite2D 
 
 @export var speed : float = 10
-@export var damage : float = 100
+@export var damage : float = randi_range(25,75)
 
 func _ready() -> void:
 	add_to_group('enemies')
@@ -30,8 +29,7 @@ func _on_body_entered(body: Node2D) -> void:
 			var new_damage_data : DamageData = DamageData.new()
 			var hc : HealthComponent = target.health_component
 			hc.take_damage(new_damage_data)
-		
-		kill()
 
 func kill():
+	Global.currency += randi_range(1, 25)
 	queue_free()

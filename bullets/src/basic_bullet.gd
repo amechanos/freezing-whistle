@@ -1,8 +1,8 @@
 extends Node2D
 class_name BasicBullet
 
-@export var damage : float = 10
 @export var speed : float = 50
+@export var damage : float = amProps.bullet_damage
 
 func _process(delta: float) -> void:
 	move_local_x(delta * speed * 10)

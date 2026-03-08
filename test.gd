@@ -16,25 +16,33 @@ func _on_timer_timeout() -> void:
 func spawn_enemy():
 	var enemyScene = preload("res://enemies/basic_enemy.tscn")
 	var newEnemy = enemyScene.instantiate()
-	var screen_size = get_viewport_rect().size
-	var margin = 100 # How far outside the screen they spawn
 	
+	# 1. Get the current camera to see where the player is looking
+	var cam = get_viewport().get_camera_2d()
+	var screen_size = get_viewport_rect().size
+	
+	var cam_pos = cam.get_screen_center_position() if cam else Vector2.ZERO
+	
+	var top_left = cam_pos - (screen_size / 2)
+	var bottom_right = cam_pos + (screen_size / 2)
+	
+	var margin = 100 
 	var spawn_pos = Vector2.ZERO
-	var side = randi() % 4 # Pick a random side: 0, 1, 2, or 3
+	var side = randi() % 4 
 	
 	match side:
-		0: # Top
-			spawn_pos.x = randf_range(0, screen_size.x)
-			spawn_pos.y = -margin
-		1: # Bottom
-			spawn_pos.x = randf_range(0, screen_size.x)
-			spawn_pos.y = screen_size.y + margin
-		2: # Left
-			spawn_pos.x = -margin
-			spawn_pos.y = randf_range(0, screen_size.y)
-		3: # Right
-			spawn_pos.x = screen_size.x + margin
-			spawn_pos.y = randf_range(0, screen_size.y)
+		0: # Top (Above the camera view)
+			spawn_pos.x = randf_range(top_left.x, bottom_right.x)
+			spawn_pos.y = top_left.y - margin
+		1: # Bottom (Below the camera view)
+			spawn_pos.x = randf_range(top_left.x, bottom_right.x)
+			spawn_pos.y = bottom_right.y + margin
+		2: # Left (To the left of camera view)
+			spawn_pos.x = top_left.x - margin
+			spawn_pos.y = randf_range(top_left.y, bottom_right.y)
+		3: # Right (To the right of camera view)
+			spawn_pos.x = bottom_right.x + margin
+			spawn_pos.y = randf_range(top_left.y, bottom_right.y)
 			
 	newEnemy.global_position = spawn_pos
 	
