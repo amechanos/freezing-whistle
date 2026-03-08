@@ -1,5 +1,6 @@
 63f7b34db8d8cdea90c76aacccf841ec
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ::res://::1772863684
 freezeable_object.gd::GDScript::3681572668198196125::1772862532::0::1::::FreezeableObject<>Area2D<><>0<>0<><>::
 icon.svg::CompressedTexture2D::3142214538753491067::1772835555::1772835562::1::::<><><>0<>0<>662b3c801af87cc8f3b9c4b27bf6981b<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
@@ -28,6 +29,8 @@ damage_data.gd::GDScript::1464104249849692606::1772858798::0::1::::DamageData<>N
 weapon_data.gd::GDScript::4345928952240343125::1772860975::0::1::::WeaponData<>Resource<><>0<>0<><>::
 weapon_handler.gd::GDScript::5737793239419828059::1772860124::0::1::::WeaponHolder<>Node2D<><>0<>0<><>::
 =======
+=======
+>>>>>>> Stashed changes
 ::res://::1772974484
 icon.svg::CompressedTexture2D::3142214538753491067::1772973054::1772973071::1::::<><><>0<>0<>662b3c801af87cc8f3b9c4b27bf6981b<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 README.md::TextFile::-1::1772973054::0::1::::<><><>0<>0<><>::
@@ -87,4 +90,7 @@ cam.tscn::PackedScene::6426875420988298533::1772974926::0::1::::<><><>0<>0<><>::
 ::res://weapons/src/::1772974860
 damage_data.gd::GDScript::1464104249849692606::1772973054::0::1::::DamageData<>Node<><>0<>0<><>::
 weapon_handler.gd::GDScript::5737793239419828059::1772974860::0::1::::WeaponHolder<>Node2D<><>0<>0<><>::
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes

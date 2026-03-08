@@ -1,4 +1,5 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 Node2D
 Timer
 CollisionShape2D
@@ -12,6 +13,22 @@ Node
 CharacterBody2D
 Control
 AnimatedSprite2D
+=======
+Label
+Button
+TextureProgressBar
+AudioStreamPlayer
+TextureRect
+Panel
+HBoxContainer
+CanvasLayer
+StaticBody2D
+Control
+VBoxContainer
+Node2D
+Camera2D
+Timer
+>>>>>>> Stashed changes
 =======
 Label
 Button
