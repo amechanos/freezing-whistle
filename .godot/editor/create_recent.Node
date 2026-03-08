@@ -1,18 +1,3 @@
-<<<<<<< Updated upstream
-Node2D
-Timer
-CollisionShape2D
-Area2D
-HealthComponent
-Sprite2D
-Marker2D
-WeaponHolder
-RayCast2D
-Node
-CharacterBody2D
-Control
-AnimatedSprite2D
-=======
 Label
 Button
 TextureProgressBar
@@ -27,4 +12,3 @@ VBoxContainer
 Node2D
 Camera2D
 Timer
->>>>>>> Stashed changes
