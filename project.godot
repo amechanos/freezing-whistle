@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="jamjam52"
-run/main_scene="uid://2qa5pa5pms7c"
+run/main_scene="uid://dxrkn7beod2ah"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -26,8 +26,8 @@ amProps="*uid://c0hvk2wb4nexm"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/stretch/mode="viewport"
 
 [gui]

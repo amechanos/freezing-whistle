@@ -21,7 +21,7 @@ func _physics_process(delta):
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 	
-	if Input.is_action_just_pressed("fire"):
+	if Input.is_action_pressed("fire"):
 		weapon_holder.shoot()
 	
 	if Input.is_action_just_pressed("volley"):

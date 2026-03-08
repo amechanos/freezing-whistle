@@ -5,17 +5,25 @@
 
 [node name="upgrades" type="Control" unique_id=1137718071]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_k80ou")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1880900835]
-layout_mode = 0
-offset_left = 64.0
-offset_top = 128.0
-offset_right = 1216.0
-offset_bottom = 640.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.26296297
+anchor_right = 0.8
+anchor_bottom = 0.73703706
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/separation = 64
 alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="gun" type="HBoxContainer" parent="VBoxContainer" unique_id=106068673]
 layout_mode = 2
@@ -295,33 +303,39 @@ vertical_alignment = 2
 
 [node name="Label" type="Label" parent="." unique_id=548491791]
 layout_mode = 0
-offset_right = 1280.0
-offset_bottom = 128.0
+anchor_left = 0.16666667
+anchor_top = 0.0074074073
+anchor_right = 0.8333333
+anchor_bottom = 0.12592593
 theme_override_fonts/font = ExtResource("2_alr6r")
 theme_override_font_sizes/font_size = 48
 text = "UPGRADES"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="balance" type="Label" parent="." unique_id=1022070958]
 layout_mode = 0
-offset_top = 90.0
-offset_right = 1280.0
-offset_bottom = 154.0
+anchor_top = 0.083333336
+anchor_right = 1.0
+anchor_bottom = 0.1425926
 theme_override_fonts/font = ExtResource("2_alr6r")
 theme_override_font_sizes/font_size = 24
 text = "Balance: $0"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="continue" type="Button" parent="." unique_id=488732918]
 layout_mode = 0
-offset_left = 512.0
-offset_top = 640.0
-offset_right = 768.0
-offset_bottom = 704.0
+anchor_left = 0.41666666
+anchor_top = 0.77037036
+anchor_right = 0.55
+anchor_bottom = 0.8296296
+offset_bottom = 6.1035156e-05
 theme_override_fonts/font = ExtResource("2_alr6r")
 theme_override_font_sizes/font_size = 24
 text = "CONTINUE"
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="continue" to="." method="_on_continue_pressed"]

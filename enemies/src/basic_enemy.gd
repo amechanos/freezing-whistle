@@ -31,6 +31,5 @@ func _on_body_entered(body: Node2D) -> void:
 			hc.take_damage(new_damage_data)
 
 func kill():
-	Global.updateUI()
-	Global._check_threshold()
+	Global.enemy_killed()
 	queue_free()

@@ -41,7 +41,8 @@ func spawn_enemy(container, screen_size):
 	var scale = lerp(1.0, 3.5, t * t)
 
 	if hp_node:
-		hp_node.max_health = int(randi_range(50, 200) * scale)
+		hp_node.max_health = int(randi_range(50, 150) * scale)
+		hp_node.max_health = round(hp_node.max_health / 10.0) * 10
 		hp_node.current_health = hp_node.max_health
 
 	container.add_child(newEnemy)
@@ -50,9 +51,6 @@ func updateUI():
 	var canvas = get_tree().current_scene.get_node("Player").get_node("Camera2D").get_node("UI")
 	var kills = canvas.get_node("kills").get_node("Label")
 	var money = canvas.get_node("currency").get_node("Label")
-	
-	currency += int(randi_range(1, 25) * lerp(1.0, 3.0, t * t))
-	killed += 1
 	
 	kills.text = "Killed: " + str(killed)
 	money.text = "Currency: $" + str(currency)
@@ -67,10 +65,20 @@ func _check_threshold() -> void:
 		threshold_index += 1
 		warp()
 
+func enemy_killed():
+	updateUI()
+	currency += int(randi_range(1, 25) * lerp(1.0, 3.0, t * t))
+	killed += 1
+	_check_threshold()
+	print(currency)
+
 func warp() -> void:
 	var is_final = threshold_index >= SHOP_THRESHOLDS.size()
 
 	if is_final:
-		get_tree().change_scene_to_file("res://menu.tscn")
+		call_deferred("change_to_scene","res://main.tscn")
 	else:
-		get_tree().change_scene_to_file("res://upgrades.tscn")
+		call_deferred("change_to_scene","res://upgrades.tscn")
+
+func change_to_scene(path:String):
+	get_tree().change_scene_to_file(path)

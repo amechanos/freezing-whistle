@@ -6,12 +6,16 @@
 [ext_resource type="Script" uid="uid://b56rc5l363sun" path="res://components/health_component.gd" id="3_i3pqv"]
 [ext_resource type="Script" uid="uid://ckhyssj1uux5o" path="res://components/freeze_component.gd" id="5_qjkh3"]
 [ext_resource type="Texture2D" uid="uid://ce2jnwwqdufv6" path="res://assets/Player.png" id="6_g6k8r"]
+[ext_resource type="AudioStream" uid="uid://dorjmpghq8xg3" path="res://sfx/dragon-studio-simple-whoosh-382724 (1).mp3" id="7_hg6s5"]
+[ext_resource type="Script" uid="uid://bttr2ucges5ok" path="res://player/play_sfx.gd" id="8_8t03j"]
+[ext_resource type="AudioStream" uid="uid://drwf3tjlavtw" path="res://sfx/hitHurt.wav" id="8_hg6s5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sh265"]
 radius = 48.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1862221262 groups=["player"]]
 script = ExtResource("1_4flbx")
+max_speed = 350.0
 
 [node name="Camera2D" parent="." unique_id=2065758779 instance=ExtResource("2_g6k8r")]
 position = Vector2(1, 0)
@@ -62,3 +66,16 @@ flip_h = true
 
 [node name="FiringPoint" type="Marker2D" parent="WeaponPivot" unique_id=218758478]
 position = Vector2(64, 0)
+
+[node name="ThrowSFX" type="AudioStreamPlayer" parent="." unique_id=1100197325]
+stream = ExtResource("7_hg6s5")
+bus = &"Music"
+script = ExtResource("8_8t03j")
+
+[node name="DamageSFX" type="AudioStreamPlayer" parent="." unique_id=1153817482]
+stream = ExtResource("8_hg6s5")
+bus = &"Music"
+script = ExtResource("8_8t03j")
+
+[connection signal="shot_fired" from="WeaponHolder" to="ThrowSFX" method="_play"]
+[connection signal="damaged" from="HealthComponent" to="DamageSFX" method="_play"]

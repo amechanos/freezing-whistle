@@ -33,18 +33,15 @@ func shoot():
 
 func burst(): # Rapid fire for X seconds (E Ability)
 	if !can_shoot_burst:
-		print("Burst on cooldown")
 		return
 		
 	can_shoot_burst = false
 	can_shoot = false
-	print("Shooting!") 
 
 	var duration_timer = get_tree().create_timer(amProps.burst_duration)
 	
 	# Keep shooting as long as the timer hasn't timed out
 	while duration_timer.get_time_left() > 0:
-		print("Bullet shot!")
 		create_bullet(1)
 		shot_fired.emit()
 		

@@ -1,0 +1,127 @@
+[gd_scene format=3 uid="uid://dxrkn7beod2ah"]
+
+[ext_resource type="Script" uid="uid://dlmsrs6p836c3" path="res://scenes/main_menu.gd" id="1_ekxnf"]
+[ext_resource type="FontFile" uid="uid://dwy4cxx2ox35k" path="res://fonts/Iceberg/Iceberg-Regular.ttf" id="1_l6cm7"]
+[ext_resource type="AudioStream" uid="uid://e1ppy71kuxc" path="res://music/main.mp3" id="3_bqqt6"]
+[ext_resource type="Texture2D" uid="uid://dw35dnos0mhbf" path="res://assets/main_menu_bg.png" id="4_wu84c"]
+
+[node name="MainMenu" type="Control" unique_id=263989978]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ekxnf")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1479579339]
+modulate = Color(0.90359825, 0.90359825, 0.9035982, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -180.0
+offset_right = 320.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_wu84c")
+metadata/_edit_use_anchors_ = true
+
+[node name="Main" type="Panel" parent="." unique_id=1271832987]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00625
+anchor_top = 0.7763889
+anchor_right = 0.253125
+anchor_bottom = 0.98888886
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main" unique_id=506497415]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartButton" type="Button" parent="Main/VBoxContainer" unique_id=262716446]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 32
+text = "Start"
+
+[node name="OptionsButton" type="Button" parent="Main/VBoxContainer" unique_id=1239252301]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 32
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="Main/VBoxContainer" unique_id=1353662749]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 32
+text = "Quit"
+
+[node name="Panel" type="Panel" parent="." unique_id=1694110819]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -72.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="MusicCheckBox" type="CheckBox" parent="Panel" unique_id=669097156]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -72.0
+offset_top = -40.0
+offset_right = 1.0
+offset_bottom = -2.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_l6cm7")
+button_pressed = true
+text = "Sound
+"
+
+[node name="GameNameLabel" type="Label" parent="." unique_id=462430154]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00625
+anchor_top = 0.6666667
+anchor_right = 0.253125
+anchor_bottom = 0.7763889
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 64
+text = "Game Name"
+metadata/_edit_use_anchors_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=438485977]
+stream = ExtResource("3_bqqt6")
+autoplay = true
+bus = &"Music"
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1553443518]
+position = Vector2(584, -88)
+amount = 32
+lifetime = 2.0
+emission_shape = 3
+emission_rect_extents = Vector2(800, 20)
+scale_amount_min = 8.75
+scale_amount_max = 12.63
+
+[connection signal="pressed" from="Main/VBoxContainer/StartButton" to="." method="start_game"]
+[connection signal="toggled" from="Panel/MusicCheckBox" to="." method="toggle_sounds"]

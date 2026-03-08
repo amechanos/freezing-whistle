@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://p7hy4dtt6ndh"
-path="res://.godot/imported/whistle.png-fcf86f7d2f46714ae3a3e1bd42c2b56b.ctex"
+path="res://.godot/imported/whistle.png-9f03fa14e87305b8276bd63ec1b00d64.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/whistle.png"
-dest_files=["res://.godot/imported/whistle.png-fcf86f7d2f46714ae3a3e1bd42c2b56b.ctex"]
+source_file="res://whistle.png"
+dest_files=["res://.godot/imported/whistle.png-9f03fa14e87305b8276bd63ec1b00d64.ctex"]
 
 [params]
 

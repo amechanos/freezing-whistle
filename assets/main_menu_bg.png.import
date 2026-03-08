@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyoy8kv8sp8bo"
-path="res://.godot/imported/freeze_progress.png-bd7ba574bd4f351830b97861f593d785.ctex"
+uid="uid://dw35dnos0mhbf"
+path="res://.godot/imported/main_menu_bg.png-0ebeb2137dac1176e6b275a6c7477b27.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://freeze_progress.png"
-dest_files=["res://.godot/imported/freeze_progress.png-bd7ba574bd4f351830b97861f593d785.ctex"]
+source_file="res://assets/main_menu_bg.png"
+dest_files=["res://.godot/imported/main_menu_bg.png-0ebeb2137dac1176e6b275a6c7477b27.ctex"]
 
 [params]
 

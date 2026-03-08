@@ -3,10 +3,10 @@
 [ext_resource type="FontFile" uid="uid://dwy4cxx2ox35k" path="res://fonts/Iceberg/Iceberg-Regular.ttf" id="1_x43kl"]
 [ext_resource type="Texture2D" uid="uid://dr8w6833bf5my" path="res://assets/volley.png" id="2_47yfy"]
 [ext_resource type="FontFile" uid="uid://cwtoog486qf8j" path="res://fonts/Martel_Sans/MartelSans-ExtraBold.ttf" id="2_hw8rl"]
-[ext_resource type="Script" uid="uid://dg4f2kaqe8g6r" path="res://player/cooldowns.gd" id="2_rfgd3"]
+[ext_resource type="Script" path="res://player/cooldowns.gd" id="2_rfgd3"]
 [ext_resource type="Texture2D" uid="uid://4inn8xhddpu4" path="res://assets/volley_progress.png" id="3_47yfy"]
 [ext_resource type="Texture2D" uid="uid://p7hy4dtt6ndh" path="res://assets/whistle.png" id="4_hw8rl"]
-[ext_resource type="Texture2D" uid="uid://dyoy8kv8sp8bo" path="res://assets/freeze_progress.png" id="5_rfgd3"]
+[ext_resource type="Texture2D" uid="uid://dyoy8kv8sp8bo" path="res://freeze_progress.png" id="5_rfgd3"]
 
 [node name="Camera2D" type="Camera2D" unique_id=2065758779]
 limit_left = -2500
@@ -19,10 +19,11 @@ script = ExtResource("2_rfgd3")
 [node name="UI" type="CanvasLayer" parent="." unique_id=173822484]
 
 [node name="Label" type="Label" parent="UI" unique_id=1751905809]
-offset_left = 1032.0
-offset_top = 601.0
-offset_right = 1080.0
-offset_bottom = 649.0
+anchors_preset = -1
+anchor_left = 0.8375
+anchor_top = 0.8962963
+anchor_right = 0.8625
+anchor_bottom = 0.94074076
 theme_override_colors/font_color = Color(0.45490196, 0.8745098, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
@@ -31,12 +32,14 @@ theme_override_font_sizes/font_size = 24
 text = "E"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Label2" type="Label" parent="UI" unique_id=1240720669]
-offset_left = 1156.0
-offset_top = 602.0
-offset_right = 1212.0
-offset_bottom = 647.0
+anchors_preset = -1
+anchor_left = 0.90208334
+anchor_top = 0.8972222
+anchor_right = 0.93125
+anchor_bottom = 0.9388889
 theme_override_colors/font_color = Color(0.45490196, 0.8745098, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
@@ -45,6 +48,7 @@ theme_override_font_sizes/font_size = 24
 text = "RMB"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="kills" type="Panel" parent="UI" unique_id=1876616429]
 offset_left = 256.0
@@ -80,10 +84,14 @@ text = "Target: 250"
 
 [node name="currency" type="Panel" parent="UI" unique_id=70310632]
 custom_minimum_size = Vector2(192, 64)
-offset_left = 1024.0
-offset_top = 64.0
-offset_right = 1216.0
-offset_bottom = 128.0
+anchors_preset = -1
+anchor_left = 0.9
+anchor_top = 0.05925926
+anchor_right = 1.0
+anchor_bottom = 0.11851852
+offset_left = -64.0
+offset_right = -64.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="UI/currency" unique_id=28000244]
 layout_mode = 0
@@ -96,12 +104,14 @@ theme_override_font_sizes/font_size = 24
 text = "Currency: $0"
 
 [node name="basebar" type="HBoxContainer" parent="UI" unique_id=2017136605]
-offset_left = 832.0
-offset_top = 640.0
-offset_right = 1216.0
-offset_bottom = 704.0
+anchors_preset = -1
+anchor_left = 0.76666665
+anchor_top = 0.8888889
+anchor_right = 0.96666664
+anchor_bottom = 0.94814813
 theme_override_constants/separation = 64
 alignment = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="volley" type="TextureRect" parent="UI/basebar" unique_id=1956607423]
 layout_mode = 2
