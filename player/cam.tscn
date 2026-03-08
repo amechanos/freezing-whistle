@@ -1,0 +1,128 @@
+[gd_scene format=3 uid="uid://cxthx1jtnbipp"]
+
+[ext_resource type="FontFile" uid="uid://dwy4cxx2ox35k" path="res://fonts/Iceberg/Iceberg-Regular.ttf" id="1_x43kl"]
+[ext_resource type="Texture2D" uid="uid://dr8w6833bf5my" path="res://assets/volley.png" id="2_47yfy"]
+[ext_resource type="FontFile" uid="uid://cwtoog486qf8j" path="res://fonts/Martel_Sans/MartelSans-ExtraBold.ttf" id="2_hw8rl"]
+[ext_resource type="Script" uid="uid://dg4f2kaqe8g6r" path="res://player/cooldowns.gd" id="2_rfgd3"]
+[ext_resource type="Texture2D" uid="uid://4inn8xhddpu4" path="res://assets/volley_progress.png" id="3_47yfy"]
+[ext_resource type="Texture2D" uid="uid://p7hy4dtt6ndh" path="res://assets/whistle.png" id="4_hw8rl"]
+[ext_resource type="Texture2D" uid="uid://dyoy8kv8sp8bo" path="res://assets/freeze_progress.png" id="5_rfgd3"]
+
+[node name="Camera2D" type="Camera2D" unique_id=2065758779]
+limit_left = -2500
+limit_top = -1749
+limit_right = 2500
+limit_bottom = 1749
+limit_smoothed = true
+script = ExtResource("2_rfgd3")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=173822484]
+
+[node name="Label" type="Label" parent="UI" unique_id=1751905809]
+offset_left = 1032.0
+offset_top = 601.0
+offset_right = 1080.0
+offset_bottom = 649.0
+theme_override_colors/font_color = Color(0.45490196, 0.8745098, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_hw8rl")
+theme_override_font_sizes/font_size = 24
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="UI" unique_id=1240720669]
+offset_left = 1156.0
+offset_top = 602.0
+offset_right = 1212.0
+offset_bottom = 647.0
+theme_override_colors/font_color = Color(0.45490196, 0.8745098, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_hw8rl")
+theme_override_font_sizes/font_size = 24
+text = "RMB"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="kills" type="Panel" parent="UI" unique_id=1876616429]
+offset_left = 256.0
+offset_top = 64.0
+offset_right = 384.0
+offset_bottom = 128.0
+
+[node name="Label" type="Label" parent="UI/kills" unique_id=437464795]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 16.0
+offset_right = 112.0
+offset_bottom = 46.0
+theme_override_fonts/font = ExtResource("1_x43kl")
+theme_override_font_sizes/font_size = 24
+text = "Kills: 0"
+
+[node name="kills2" type="Panel" parent="UI" unique_id=795166803]
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 216.0
+offset_bottom = 128.0
+
+[node name="Label" type="Label" parent="UI/kills2" unique_id=1317152707]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 16.0
+offset_right = 112.0
+offset_bottom = 46.0
+theme_override_fonts/font = ExtResource("1_x43kl")
+theme_override_font_sizes/font_size = 24
+text = "Target: 250"
+
+[node name="currency" type="Panel" parent="UI" unique_id=70310632]
+custom_minimum_size = Vector2(192, 64)
+offset_left = 1024.0
+offset_top = 64.0
+offset_right = 1216.0
+offset_bottom = 128.0
+
+[node name="Label" type="Label" parent="UI/currency" unique_id=28000244]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 172.0
+offset_bottom = 46.0
+theme_override_fonts/font = ExtResource("1_x43kl")
+theme_override_font_sizes/font_size = 24
+text = "Currency: $0"
+
+[node name="basebar" type="HBoxContainer" parent="UI" unique_id=2017136605]
+offset_left = 832.0
+offset_top = 640.0
+offset_right = 1216.0
+offset_bottom = 704.0
+theme_override_constants/separation = 64
+alignment = 2
+
+[node name="volley" type="TextureRect" parent="UI/basebar" unique_id=1956607423]
+layout_mode = 2
+texture = ExtResource("2_47yfy")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="UI/basebar/volley" unique_id=489620740]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+step = 0.01
+fill_mode = 4
+texture_progress = ExtResource("3_47yfy")
+
+[node name="freeze" type="TextureRect" parent="UI/basebar" unique_id=413014763]
+layout_mode = 2
+texture = ExtResource("4_hw8rl")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="UI/basebar/freeze" unique_id=79488749]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+step = 0.01
+fill_mode = 4
+texture_progress = ExtResource("5_rfgd3")

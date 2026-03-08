@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c8fb6x1fn0dr8"]
+
+[ext_resource type="Script" uid="uid://d2tlhrj66xgnx" path="res://freeze_area/freeze_area.gd" id="1_4404f"]
+[ext_resource type="AudioStream" uid="uid://d8y2oldg2frl" path="res://music/whistle.mp3" id="2_yqo0l"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8uh7m"]
+radius = 150.0
+
+[node name="FreezeArea" type="Area2D" unique_id=1862818330]
+script = ExtResource("1_4404f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=488388797]
+shape = SubResource("CircleShape2D_8uh7m")
+debug_color = Color(0.3764706, 0.6, 0.69803923, 0.41960785)
+
+[node name="Timer" type="Timer" parent="." unique_id=1564090703]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1617675534]
+stream = ExtResource("2_yqo0l")
+
+[connection signal="timeout" from="Timer" to="." method="unfreeze"]

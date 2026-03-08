@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://tyba4mvbi6gv"]
+
+[ext_resource type="Script" uid="uid://cly6668x6qhe7" path="res://player/player.gd" id="1_4flbx"]
+[ext_resource type="PackedScene" uid="uid://cxthx1jtnbipp" path="res://player/cam.tscn" id="2_g6k8r"]
+[ext_resource type="Script" uid="uid://cn0ou7rcilhol" path="res://weapons/src/weapon_handler.gd" id="2_onrkg"]
+[ext_resource type="Script" uid="uid://b56rc5l363sun" path="res://components/health_component.gd" id="3_i3pqv"]
+[ext_resource type="Script" uid="uid://ckhyssj1uux5o" path="res://components/freeze_component.gd" id="5_qjkh3"]
+[ext_resource type="Texture2D" uid="uid://ce2jnwwqdufv6" path="res://assets/Player.png" id="6_g6k8r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sh265"]
+radius = 48.0
+
+[node name="Player" type="CharacterBody2D" unique_id=1862221262 groups=["player"]]
+script = ExtResource("1_4flbx")
+
+[node name="Camera2D" parent="." unique_id=2065758779 instance=ExtResource("2_g6k8r")]
+position = Vector2(1, 0)
+
+[node name="WeaponHolder" type="Node2D" parent="." unique_id=277273061]
+script = ExtResource("2_onrkg")
+metadata/_custom_type_script = "uid://cn0ou7rcilhol"
+
+[node name="HealthComponent" type="Node2D" parent="." unique_id=343040301]
+script = ExtResource("3_i3pqv")
+metadata/_custom_type_script = "uid://b56rc5l363sun"
+
+[node name="FreezeComponent" type="Node2D" parent="." unique_id=1550602206]
+script = ExtResource("5_qjkh3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1846081811]
+z_index = 1
+shape = SubResource("CircleShape2D_sh265")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1836974975]
+rotation = -1.5707964
+target_position = Vector2(-3.14722e-06, 72)
+
+[node name="HP" type="Label" parent="." unique_id=1316970379]
+offset_left = -48.0
+offset_top = -80.0
+offset_right = 48.0
+offset_bottom = -57.0
+theme_override_font_sizes/font_size = 10
+text = "Health: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="HP" unique_id=1676151930]
+z_index = -1
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 24.0
+
+[node name="WeaponPivot" type="Node2D" parent="." unique_id=271537836]
+
+[node name="Sprite2D" type="Sprite2D" parent="WeaponPivot" unique_id=777019954]
+texture_filter = 3
+position = Vector2(1.1444092e-05, 3.2311743e-27)
+scale = Vector2(1.6249999, 1.6249999)
+texture = ExtResource("6_g6k8r")
+flip_h = true
+
+[node name="FiringPoint" type="Marker2D" parent="WeaponPivot" unique_id=218758478]
+position = Vector2(64, 0)
