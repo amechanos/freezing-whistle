@@ -26,7 +26,6 @@ autostart = true
 [node name="enemies" type="Node2D" parent="." unique_id=1433245317]
 
 [node name="BasicEnemy" parent="enemies" unique_id=648035323 instance=ExtResource("2_8uh7m")]
-speed = 20.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2086919546]
 stream = SubResource("AudioStreamMP3_ppyta")

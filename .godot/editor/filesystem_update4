@@ -18,3 +18,7 @@ res://audio_bus_layout.tres
 res://player/player.tscn
 res://player/play_sfx.gd
 res://upgrades.tscn
+res://enemies/fast_enemy.tscn
+res://enemies/tank_enemy.tscn
+res://components/health_component.gd
+res://weapons/src/damage_data.gd

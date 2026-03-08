@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://7se16vkktuy0"]
+
+[ext_resource type="Script" uid="uid://cibryl1cvpy4p" path="res://enemies/src/basic_enemy.gd" id="1_jxehc"]
+[ext_resource type="Script" uid="uid://b56rc5l363sun" path="res://components/health_component.gd" id="2_5r5hl"]
+[ext_resource type="Texture2D" uid="uid://cxg5gn32iqt2x" path="res://assets/enemy3.png" id="3_jxehc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5xrap"]
+radius = 40.0
+
+[node name="TankEnemy" type="Area2D" unique_id=151461423]
+script = ExtResource("1_jxehc")
+min_speed = 15.0
+max_speed = 25.0
+min_damage = 15.0
+max_damage = 30.0
+
+[node name="HealthComponent" type="Node2D" parent="." unique_id=547684747]
+script = ExtResource("2_5r5hl")
+metadata/_custom_type_script = "uid://b56rc5l363sun"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=923603518]
+shape = SubResource("CircleShape2D_5xrap")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1185005405]
+texture_filter = 3
+rotation = 3.1415927
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_jxehc")
+flip_h = true
+
+[node name="HP" type="Label" parent="." unique_id=580500192]
+offset_left = -48.0
+offset_top = -80.0
+offset_right = 48.0
+offset_bottom = -57.0
+theme_override_font_sizes/font_size = 10
+text = "Health: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="HP" unique_id=1281275830]
+z_index = -1
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 24.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="died" from="HealthComponent" to="." method="kill"]

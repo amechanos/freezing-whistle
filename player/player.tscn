@@ -15,7 +15,8 @@ radius = 48.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1862221262 groups=["player"]]
 script = ExtResource("1_4flbx")
-max_speed = 350.0
+max_speed = 500.0
+acceleration = 1600.0
 
 [node name="Camera2D" parent="." unique_id=2065758779 instance=ExtResource("2_g6k8r")]
 position = Vector2(1, 0)
@@ -26,6 +27,7 @@ metadata/_custom_type_script = "uid://cn0ou7rcilhol"
 
 [node name="HealthComponent" type="Node2D" parent="." unique_id=343040301]
 script = ExtResource("3_i3pqv")
+rand_health = false
 metadata/_custom_type_script = "uid://b56rc5l363sun"
 
 [node name="FreezeComponent" type="Node2D" parent="." unique_id=1550602206]
@@ -79,3 +81,5 @@ script = ExtResource("8_8t03j")
 
 [connection signal="shot_fired" from="WeaponHolder" to="ThrowSFX" method="_play"]
 [connection signal="damaged" from="HealthComponent" to="DamageSFX" method="_play"]
+[connection signal="died" from="HealthComponent" to="." method="kill"]
+[connection signal="health_changed" from="HealthComponent" to="." method="update_hp"]

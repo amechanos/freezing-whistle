@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cvegyhatuu16a" path="res://upgrades.gd" id="1_k80ou"]
 [ext_resource type="FontFile" uid="uid://dwy4cxx2ox35k" path="res://fonts/Iceberg/Iceberg-Regular.ttf" id="2_alr6r"]
+[ext_resource type="Texture2D" uid="uid://ckpjx2qg88fj1" path="res://assets/shop_menu_bg.png" id="2_ba88x"]
 
 [node name="upgrades" type="Control" unique_id=1137718071]
 layout_mode = 3
@@ -11,6 +12,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_k80ou")
+
+[node name="BackGround" type="TextureRect" parent="." unique_id=1750868399]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ba88x")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1880900835]
 layout_mode = 1

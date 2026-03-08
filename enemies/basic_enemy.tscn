@@ -12,6 +12,8 @@ script = ExtResource("1_6ofcp")
 
 [node name="HealthComponent" type="Node2D" parent="." unique_id=547684747]
 script = ExtResource("2_5xrap")
+max_health = 20
+min_health = 50
 metadata/_custom_type_script = "uid://b56rc5l363sun"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=923603518]
@@ -42,3 +44,4 @@ offset_bottom = 24.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="died" from="HealthComponent" to="." method="kill"]
+[connection signal="health_changed" from="HealthComponent" to="." method="update_health_bar"]

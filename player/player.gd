@@ -10,8 +10,8 @@ extends CharacterBody2D
 @export var acceleration : float = 800.0
 @export var friction : float = 900.0
 
-func _ready() -> void:
-	healthBar.text = "Health: " + str(int(health_component.current_health))
+func update_hp(current_health:float, _max_health:float):
+	healthBar.text = 'Health: ' + str(current_health)
 
 func _physics_process(delta):
 	var input_vector = Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -36,4 +36,4 @@ func _physics_process(delta):
 	move_and_slide()
 
 func kill():
-	pass
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

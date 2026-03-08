@@ -14,7 +14,7 @@ func _on_timer_timeout() -> void:
 	# 1 enemy early, up to 3 near 250
 	var spawn_count = 1 + int(t * t * 2)
 	for i in spawn_count:
-		Global.spawn_enemy($enemies, get_viewport_rect().size)
+		Global.spawn_enemies($enemies, get_viewport_rect().size)
 	
 	# 5s → 0.4s floor, with slight jitter so it never feels mechanical
 	$Timer.wait_time = lerp(5.0, 0.4, t * t) + randf_range(-0.2, 0.2)
