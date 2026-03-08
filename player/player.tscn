@@ -1,19 +1,59 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=7 format=3 uid="uid://tyba4mvbi6gv"]
+=======
+[gd_scene load_steps=13 format=3 uid="uid://tyba4mvbi6gv"]
+>>>>>>> Stashed changes
 
 [ext_resource type="Script" uid="uid://cly6668x6qhe7" path="res://player/player.gd" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://cn0ou7rcilhol" path="res://weapons/src/weapon_handler.gd" id="2_onrkg"]
 [ext_resource type="Resource" uid="uid://c87tuvgyqjhsv" path="res://weapons/basic_weapon.tres" id="3_hqtel"]
 [ext_resource type="Script" uid="uid://b56rc5l363sun" path="res://components/health_component.gd" id="3_i3pqv"]
 [ext_resource type="Script" uid="uid://ckhyssj1uux5o" path="res://components/freeze_component.gd" id="5_qjkh3"]
+<<<<<<< Updated upstream
+=======
+[ext_resource type="Texture2D" uid="uid://ce2jnwwqdufv6" path="res://assets/Player.png" id="6_g6k8r"]
+[ext_resource type="Script" uid="uid://bt2rmwjlo54ki" path="res://player/player_ui.gd" id="6_rgyib"]
+[ext_resource type="FontFile" uid="uid://dwy4cxx2ox35k" path="res://fonts/Iceberg/Iceberg-Regular.ttf" id="7_hg6s5"]
+[ext_resource type="Script" uid="uid://cvegyhatuu16a" path="res://upgrades.gd" id="8_rgyib"]
+>>>>>>> Stashed changes
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sh265"]
 
+<<<<<<< Updated upstream
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_4flbx")
 
 [node name="WeaponHolder" type="Node2D" parent="."]
 script = ExtResource("2_onrkg")
 current_weapon = ExtResource("3_hqtel")
+=======
+[sub_resource type="LabelSettings" id="LabelSettings_f7moa"]
+font = ExtResource("7_hg6s5")
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_alr6r"]
+offset = Vector3(137.93, 0, 0)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ba88x"]
+noise = SubResource("FastNoiseLite_alr6r")
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+z_index = 1
+script = ExtResource("1_4flbx")
+max_speed = 300.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
+limit_left = -2500
+limit_top = -1749
+limit_right = 2500
+limit_bottom = 1749
+limit_smoothed = true
+
+[node name="WeaponHolder" type="Node2D" parent="."]
+script = ExtResource("2_onrkg")
+>>>>>>> Stashed changes
 metadata/_custom_type_script = "uid://cn0ou7rcilhol"
 
 [node name="HealthComponent" type="Node2D" parent="."]
@@ -23,13 +63,484 @@ metadata/_custom_type_script = "uid://b56rc5l363sun"
 [node name="FreezeComponent" type="Node2D" parent="."]
 script = ExtResource("5_qjkh3")
 
+<<<<<<< Updated upstream
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+=======
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+>>>>>>> Stashed changes
 shape = SubResource("CircleShape2D_sh265")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 rotation = -1.5707964
 
+<<<<<<< Updated upstream
 [node name="FiringPoint" type="Marker2D" parent="."]
 position = Vector2(15, 0)
+=======
+[node name="WeaponPivot" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="WeaponPivot"]
+texture_filter = 3
+position = Vector2(1.1444092e-05, 3.2311743e-27)
+scale = Vector2(1.6249999, 1.6249999)
+texture = ExtResource("6_g6k8r")
+flip_h = true
+
+[node name="FiringPoint" type="Marker2D" parent="WeaponPivot"]
+position = Vector2(64, 0)
+
+[node name="PlayerUI" type="CanvasLayer" parent="."]
+script = ExtResource("6_rgyib")
+
+[node name="InGameUI" type="Control" parent="PlayerUI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CoinLabel" type="Label" parent="PlayerUI/InGameUI"]
+layout_mode = 0
+offset_right = 288.0
+offset_bottom = 40.0
+text = "Coins: 0"
+label_settings = SubResource("LabelSettings_f7moa")
+
+[node name="RoundLabel" type="Label" parent="PlayerUI/InGameUI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -149.5
+offset_right = 149.5
+offset_bottom = 40.0
+grow_horizontal = 2
+text = "Round
+1"
+label_settings = SubResource("LabelSettings_f7moa")
+horizontal_alignment = 1
+
+[node name="HealthBar" type="ProgressBar" parent="PlayerUI/InGameUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.9625
+anchor_right = 0.25
+anchor_bottom = 1.0
+grow_vertical = 0
+value = 100.0
+metadata/_edit_use_anchors_ = true
+
+[node name="upgrades" type="Control" parent="PlayerUI"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_rgyib")
+
+[node name="Background" type="TextureRect" parent="PlayerUI/upgrades"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_ba88x")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PlayerUI/upgrades"]
+layout_mode = 0
+anchor_left = 0.05
+anchor_top = 0.17777778
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/separation = 64
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="whistle" type="HBoxContainer" parent="PlayerUI/upgrades/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="damage_whistle" type="Panel" parent="PlayerUI/upgrades/VBoxContainer/whistle"]
+custom_minimum_size = Vector2(320, 96)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="PlayerUI/upgrades/VBoxContainer/whistle/damage_whistle"]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 16.0
+offset_right = 304.0
+offset_bottom = 80.0
+text = "$100"
+
+[node name="Label" type="Label" parent="PlayerUI/upgrades/VBoxContainer/whistle/damage_whistle"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 50.0
+offset_right = 240.0
+offset_bottom = 82.0
+theme_override_font_sizes/font_size = 14
+text = "test"
+vertical_alignment = 2
+
+[node name="name" type="Label" parent="PlayerUI/upgrades/VBoxContainer/whistle/damage_whistle"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 240.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("7_hg6s5")
+theme_override_font_sizes/font_size = 24
+text = "Burst Duration"
+vertical_alignment = 2
+
+[node name="radius_whistle" type="Panel" parent="PlayerUI/upgrades/VBoxContainer/whistle"]
+custom_minimum_size = Vector2(320, 96)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="PlayerUI/upgrades/VBoxContainer/whistle/radius_whistle"]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 16.0
+offset_right = 296.0
+offset_bottom = 80.0
+text = "$100"
+
+[node name="Label" type="Label" parent="PlayerUI/upgrades/VBoxContainer/whistle/radius_whistle"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 50.0
+offset_right = 240.0
+offset_bottom = 82.0
+theme_override_font_sizes/font_size = 18
+text = "test"
+vertical_alignment = 2
+
+[node name="name" type="Label" parent="PlayerUI/upgrades/VBoxContainer/whistle/radius_whistle"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 240.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("7_hg6s5")
+theme_override_font_sizes/font_size = 24
+text = "Burst Duration"
+vertical_alignment = 2
+
+[node name="gun" type="HBoxContainer" parent="PlayerUI/upgrades/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="damage_gun" type="Panel" parent="PlayerUI/upgrades/VBoxContainer/gun"]
+custom_minimum_size = Vector2(320, 96)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="PlayerUI/upgrades/VBoxContainer/gun/damage_gun"]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 16.0
+offset_right = 296.0
+offset_bottom = 80.0
+text = "$100"
+
+[node name="Label" type="Label" parent="PlayerUI/upgrades/VBoxContainer/gun/damage_gun"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 50.0
+offset_right = 240.0
+offset_bottom = 82.0
+theme_override_font_sizes/font_size = 14
+text = "test"
+vertical_alignment = 2
+
+[node name="name" type="Label" parent="PlayerUI/upgrades/VBoxContainer/gun/damage_gun"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 240.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("7_hg6s5")
+theme_override_font_sizes/font_size = 24
+text = "Snowball Damage"
+vertical_alignment = 2
+
+[node name="firerate_gun" type="Panel" parent="PlayerUI/upgrades/VBoxContainer/gun"]
+custom_minimum_size = Vector2(320, 96)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="PlayerUI/upgrades/VBoxContainer/gun/firerate_gun"]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 16.0
+offset_right = 296.0
+offset_bottom = 80.0
+text = "$100"
+
+[node name="Label" type="Label" parent="PlayerUI/upgrades/VBoxContainer/gun/firerate_gun"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 50.0
+offset_right = 240.0
+offset_bottom = 82.0
+theme_override_font_sizes/font_size = 14
+text = "test"
+vertical_alignment = 2
+
+[node name="name" type="Label" parent="PlayerUI/upgrades/VBoxContainer/gun/firerate_gun"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 240.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("7_hg6s5")
+theme_override_font_sizes/font_size = 24
+text = "Snowball Firerate"
+vertical_alignment = 2
+
+[node name="bulletcount_gun" type="Panel" parent="PlayerUI/upgrades/VBoxContainer/gun"]
+custom_minimum_size = Vector2(320, 96)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="PlayerUI/upgrades/VBoxContainer/gun/bulletcount_gun"]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 16.0
+offset_right = 296.0
+offset_bottom = 80.0
+text = "$100"
+
+[node name="Label" type="Label" parent="PlayerUI/upgrades/VBoxContainer/gun/bulletcount_gun"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 50.0
+offset_right = 240.0
+offset_bottom = 82.0
+theme_override_font_sizes/font_size = 14
+text = "test"
+vertical_alignment = 2
+
+[node name="name" type="Label" parent="PlayerUI/upgrades/VBoxContainer/gun/bulletcount_gun"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 240.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("7_hg6s5")
+theme_override_font_sizes/font_size = 24
+text = "Bullet Count"
+vertical_alignment = 2
+
+[node name="burst" type="HBoxContainer" parent="PlayerUI/upgrades/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="cooldown_burst" type="Panel" parent="PlayerUI/upgrades/VBoxContainer/burst"]
+custom_minimum_size = Vector2(320, 96)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="PlayerUI/upgrades/VBoxContainer/burst/cooldown_burst"]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 16.0
+offset_right = 296.0
+offset_bottom = 82.0
+text = "$100"
+
+[node name="Label" type="Label" parent="PlayerUI/upgrades/VBoxContainer/burst/cooldown_burst"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 50.0
+offset_right = 240.0
+offset_bottom = 82.0
+theme_override_font_sizes/font_size = 14
+text = "test"
+vertical_alignment = 2
+
+[node name="name" type="Label" parent="PlayerUI/upgrades/VBoxContainer/burst/cooldown_burst"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 240.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("7_hg6s5")
+theme_override_font_sizes/font_size = 24
+text = "Burst Cooldown"
+vertical_alignment = 2
+
+[node name="duration_burst" type="Panel" parent="PlayerUI/upgrades/VBoxContainer/burst"]
+custom_minimum_size = Vector2(320, 96)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PlayerUI/upgrades/VBoxContainer/burst/duration_burst"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 50.0
+offset_right = 240.0
+offset_bottom = 82.0
+theme_override_font_sizes/font_size = 14
+text = "test"
+vertical_alignment = 2
+
+[node name="name" type="Label" parent="PlayerUI/upgrades/VBoxContainer/burst/duration_burst"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 240.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("7_hg6s5")
+theme_override_font_sizes/font_size = 24
+text = "Burst Duration"
+vertical_alignment = 2
+
+[node name="Button" type="Button" parent="PlayerUI/upgrades/VBoxContainer/burst/duration_burst"]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 16.0
+offset_right = 296.0
+offset_bottom = 82.0
+text = "$100"
+
+[node name="freeze" type="HBoxContainer" parent="PlayerUI/upgrades/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="cooldown_freeze" type="Panel" parent="PlayerUI/upgrades/VBoxContainer/freeze"]
+custom_minimum_size = Vector2(320, 96)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="PlayerUI/upgrades/VBoxContainer/freeze/cooldown_freeze"]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 16.0
+offset_right = 296.0
+offset_bottom = 80.0
+text = "$100"
+
+[node name="Label" type="Label" parent="PlayerUI/upgrades/VBoxContainer/freeze/cooldown_freeze"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 50.0
+offset_right = 240.0
+offset_bottom = 82.0
+theme_override_font_sizes/font_size = 14
+text = "test"
+vertical_alignment = 2
+
+[node name="name" type="Label" parent="PlayerUI/upgrades/VBoxContainer/freeze/cooldown_freeze"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 240.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("7_hg6s5")
+theme_override_font_sizes/font_size = 24
+text = "Freeze Cooldown"
+vertical_alignment = 2
+
+[node name="duration_freeze" type="Panel" parent="PlayerUI/upgrades/VBoxContainer/freeze"]
+custom_minimum_size = Vector2(320, 96)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="PlayerUI/upgrades/VBoxContainer/freeze/duration_freeze"]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 16.0
+offset_right = 296.0
+offset_bottom = 80.0
+text = "$100"
+
+[node name="Label" type="Label" parent="PlayerUI/upgrades/VBoxContainer/freeze/duration_freeze"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 50.0
+offset_right = 240.0
+offset_bottom = 82.0
+theme_override_font_sizes/font_size = 14
+text = "test"
+vertical_alignment = 2
+
+[node name="name" type="Label" parent="PlayerUI/upgrades/VBoxContainer/freeze/duration_freeze"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 240.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("7_hg6s5")
+theme_override_font_sizes/font_size = 24
+text = "Freeze Duration"
+vertical_alignment = 2
+
+[node name="size_freeze" type="Panel" parent="PlayerUI/upgrades/VBoxContainer/freeze"]
+custom_minimum_size = Vector2(320, 96)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="PlayerUI/upgrades/VBoxContainer/freeze/size_freeze"]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 16.0
+offset_right = 296.0
+offset_bottom = 80.0
+text = "$100"
+
+[node name="Label" type="Label" parent="PlayerUI/upgrades/VBoxContainer/freeze/size_freeze"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 50.0
+offset_right = 240.0
+offset_bottom = 82.0
+theme_override_font_sizes/font_size = 14
+text = "test"
+vertical_alignment = 2
+
+[node name="name" type="Label" parent="PlayerUI/upgrades/VBoxContainer/freeze/size_freeze"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 240.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("7_hg6s5")
+theme_override_font_sizes/font_size = 24
+text = "Freeze Size"
+vertical_alignment = 2
+
+[node name="Label" type="Label" parent="PlayerUI/upgrades"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 0.17777778
+theme_override_fonts/font = ExtResource("7_hg6s5")
+theme_override_font_sizes/font_size = 48
+text = "UPGRADES"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CurrencyLabel" type="Label" parent="PlayerUI/upgrades"]
+layout_mode = 1
+offset_right = 193.0
+offset_bottom = 59.0
+theme_override_fonts/font = ExtResource("7_hg6s5")
+theme_override_font_sizes/font_size = 48
+text = "Coins:100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="PlayerUI/upgrades"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -45.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "Next"
+
+[connection signal="died" from="HealthComponent" to="." method="kill"]
+[connection signal="health_changed" from="HealthComponent" to="PlayerUI" method="update_health_bar"]
+[connection signal="pressed" from="PlayerUI/upgrades/Button" to="PlayerUI" method="start_next_round"]
+>>>>>>> Stashed changes

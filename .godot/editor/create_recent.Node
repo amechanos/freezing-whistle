@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 Node2D
 Timer
 CollisionShape2D
@@ -11,3 +12,19 @@ Node
 CharacterBody2D
 Control
 AnimatedSprite2D
+=======
+ProgressBar
+Button
+Node2D
+AnimationPlayer
+CollisionShape2D
+Area2D
+Panel
+Control
+Node
+Line2D
+TextureRect
+Timer
+CanvasLayer
+Label
+>>>>>>> Stashed changes

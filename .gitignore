@@ -1,3 +1,4 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+.godot/editor/basic_enemy.tscn-folding-9524b9ed43798754a4e889d505e04969.cfg

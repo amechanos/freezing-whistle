@@ -1,14 +1,38 @@
 extends CharacterBody2D
+class_name Player
 
 @onready var weapon_holder : WeaponHolder = $WeaponHolder
 @onready var health_component : HealthComponent = $HealthComponent
 @onready var freeze_component : FreezeComponent = $FreezeComponent
+<<<<<<< Updated upstream
 @onready var sprite : Sprite2D = $Sprite2D
+=======
+@onready var sprite : Sprite2D = $WeaponPivot/Sprite2D
+@onready var healthBar : ProgressBar = $PlayerUI/InGameUI/HealthBar
+>>>>>>> Stashed changes
 
 @export var max_speed : float = 200.0
 @export var acceleration : float = 800.0
 @export var friction : float = 900.0
 
+<<<<<<< Updated upstream
+=======
+func enable(b : bool):
+	set_process(b)
+	set_physics_process(b)
+	sprite.visible = b
+
+func _ready() -> void:
+	Global.round_ended.connect(on_round_ended)
+	Global.round_started.connect(on_round_started)
+
+func on_round_ended():
+	enable(false)
+
+func on_round_started(_round : int):
+	enable(true)
+
+>>>>>>> Stashed changes
 func _physics_process(delta):
 	var input_vector = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	
@@ -34,4 +58,8 @@ func update_graphics(weapon_data:WeaponData):
 	sprite.texture = weapon_data.player_texture
 
 func kill():
+<<<<<<< Updated upstream
 	pass #end of game trigger
+=======
+	Global.end_game()
+>>>>>>> Stashed changes

@@ -1,19 +1,317 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=4 format=3 uid="uid://c4svxlcx38n8c"]
 
 [ext_resource type="Script" uid="uid://cibryl1cvpy4p" path="res://enemies/src/basic_enemy.gd" id="1_6ofcp"]
 [ext_resource type="Script" uid="uid://b56rc5l363sun" path="res://components/health_component.gd" id="2_5xrap"]
+=======
+[gd_scene load_steps=10 format=3 uid="uid://c4svxlcx38n8c"]
+
+[ext_resource type="Script" uid="uid://cibryl1cvpy4p" path="res://enemies/src/basic_enemy.gd" id="1_6ofcp"]
+[ext_resource type="Script" uid="uid://b56rc5l363sun" path="res://components/health_component.gd" id="2_5xrap"]
+[ext_resource type="Texture2D" uid="uid://bjijhske681t4" path="res://assets/enemy.png" id="3_5xrap"]
+[ext_resource type="Texture2D" uid="uid://cq2yt1pq5uonh" path="res://assets/enemy_arm.png" id="3_li1hj"]
+>>>>>>> Stashed changes
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6uqi0"]
 
+<<<<<<< Updated upstream
 [node name="BasicEnemy" type="Area2D"]
 script = ExtResource("1_6ofcp")
 
+=======
+[sub_resource type="Animation" id="Animation_qjw0p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PaperDoll/body:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.1415927]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PaperDoll/ArmRight:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-3.1415925]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PaperDoll/ArmLeft:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-3.1415925]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PaperDoll/ArmRight:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-22.000004, -31)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PaperDoll/ArmLeft:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-24, 32)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PaperDoll/body:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8e1o5"]
+resource_name = "basic_enemy_walk"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PaperDoll/body:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333335, 0.4666667, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [3.1415927, 3.403392, 2.8797934, 3.1415927]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PaperDoll/ArmRight:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.23333335, 0.4666667, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [-3.1415925, -2.8395042, -4.550095, -3.1415925]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PaperDoll/ArmLeft:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.23333335, 0.4666667, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [-3.1415925, -2.011912, -3.767136, -3.1415925]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PaperDoll/ArmRight:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.23333335, 0.4666667, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(24.58154, -31), Vector2(32.338074, -23.725004), Vector2(0.808915, -50.047108), Vector2(24.58154, -31)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PaperDoll/ArmLeft:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.23333335, 0.4666667, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(22.581543, 32), Vector2(3.3064585, 46.015762), Vector2(37.327568, 6.9316444), Vector2(22.581543, 32)]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.46666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"attack"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_li0g8"]
+resource_name = "walk"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PaperDoll/ArmLeft:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.40000004, 0.6666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [-3.1415925, -3.4012825, -3.1415925, -2.555701, -3.1415925]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PaperDoll/ArmRight:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.40000004, 0.6666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [-3.1415925, -3.4012825, -3.1415925, -2.555701, -3.1415925]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PaperDoll/body:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.40000004, 0.6666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [3.1415927, 2.8517675, 3.1415927, 3.6651917, 3.1415927]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PaperDoll/ArmLeft:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.40000004, 0.6666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(24.77121, 31.000008), Vector2(37.816704, 20.507347), Vector2(24.77121, 31.000008), Vector2(8.315353, 41.03656), Vector2(26.043518, 31.000008)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PaperDoll/ArmRight:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.40000004, 0.6666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(26.771206, -31.999992), Vector2(16.683887, -38.28669), Vector2(26.771206, -31.999992), Vector2(37.373684, -15.308405), Vector2(28.043514, -31.999992)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PaperDoll/body:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.40000004, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_blsll"]
+_data = {
+&"RESET": SubResource("Animation_qjw0p"),
+&"attack": SubResource("Animation_8e1o5"),
+&"walk": SubResource("Animation_li0g8")
+}
+
+[node name="BasicEnemy" type="Area2D"]
+script = ExtResource("1_6ofcp")
+damage = 10.0
+
+>>>>>>> Stashed changes
 [node name="HealthComponent" type="Node2D" parent="."]
 script = ExtResource("2_5xrap")
+random_health = true
 metadata/_custom_type_script = "uid://b56rc5l363sun"
 
+<<<<<<< Updated upstream
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_6uqi0")
+=======
+[node name="HP" type="ProgressBar" parent="."]
+offset_left = -48.0
+offset_top = -80.0
+offset_right = 48.0
+offset_bottom = -57.0
+theme_override_font_sizes/font_size = 10
+value = 100.0
+show_percentage = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5xrap")
+
+[node name="PaperDoll" type="Node2D" parent="."]
+
+[node name="ArmLeft" type="Sprite2D" parent="PaperDoll"]
+texture_filter = 3
+position = Vector2(-24, 32)
+rotation = -3.1415925
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_li1hj")
+
+[node name="ArmRight" type="Sprite2D" parent="PaperDoll"]
+texture_filter = 3
+position = Vector2(-22.000004, -31)
+rotation = -3.1415925
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_li1hj")
+flip_v = true
+
+[node name="body" type="Sprite2D" parent="PaperDoll"]
+texture_filter = 3
+rotation = 3.1415927
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_5xrap")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_blsll")
+}
+autoplay = "walk"
+>>>>>>> Stashed changes
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="died" from="HealthComponent" to="." method="kill"]
+[connection signal="health_changed" from="HealthComponent" to="." method="update_health_bar"]

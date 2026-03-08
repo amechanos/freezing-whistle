@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://cfvy5vsbl3m01"]
+
+[ext_resource type="Script" uid="uid://bt2rmwjlo54ki" path="res://player/player_ui.gd" id="1_f7moa"]
+[ext_resource type="FontFile" uid="uid://dwy4cxx2ox35k" path="res://fonts/Iceberg/Iceberg-Regular.ttf" id="1_n215f"]
+[ext_resource type="PackedScene" uid="uid://dctps0sn3mrp6" path="res://upgrades.tscn" id="3_tpwqs"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_f7moa"]
+font = ExtResource("1_n215f")
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[node name="PlayerUI" type="CanvasLayer"]
+script = ExtResource("1_f7moa")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CoinLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 288.0
+offset_bottom = 40.0
+text = "Coins: 0"
+label_settings = SubResource("LabelSettings_f7moa")
+
+[node name="RoundLabel" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -149.5
+offset_right = 149.5
+offset_bottom = 40.0
+grow_horizontal = 2
+text = "Round
+1"
+label_settings = SubResource("LabelSettings_f7moa")
+horizontal_alignment = 1
+
+[node name="upgrades" parent="." instance=ExtResource("3_tpwqs")]
+visible = false

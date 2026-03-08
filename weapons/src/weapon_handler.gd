@@ -30,6 +30,7 @@ func shoot():
 	
 	can_shoot = false
 	
+<<<<<<< Updated upstream
 	#no idea what I did but it worked
 	if current_weapon.burst_size > 0:
 		while bullets_shot <= current_weapon.burst_size:
@@ -59,6 +60,32 @@ func create_bullet(i : int):
 		var arc_rad = deg_to_rad(current_weapon.arc)
 		var increment = arc_rad / (current_weapon.bullet_count - 1)
 		
+=======
+	# Keep shooting as long as the timer hasn't timed out
+	while duration_timer.get_time_left() > 0:
+		print("Bullet shot!")
+		create_bullet(1)
+		shot_fired.emit()
+		
+		await get_tree().create_timer(amProps.time_between_shots).timeout
+		
+	# Start the overall ability cooldown after the shooting ends
+	can_shoot = true
+	await get_tree().create_timer(amProps.burst_cooldown).timeout
+	can_shoot_burst = true
+
+
+func create_bullet(i: int):
+	var new_bullet : Node2D = bullet_scene.instantiate()
+	new_bullet.global_position = firing_point.global_position
+	
+	if amProps.bullet_count == 1:
+		new_bullet.global_rotation = firing_point.global_rotation + randf_range(-amProps.arc, amProps.arc)
+	else:
+		#I have no clue as to why this broke it works in my other project 
+		var arc_rad = deg_to_rad(amProps.arc)
+		var increment = arc_rad / (amProps.bullet_count - 1)
+>>>>>>> Stashed changes
 		new_bullet.global_rotation = (
 			global_rotation + randf_range(-current_weapon.arc, current_weapon.arc) +
 			increment * i - 
