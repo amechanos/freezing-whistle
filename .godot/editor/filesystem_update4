@@ -22,3 +22,9 @@ res://enemies/fast_enemy.tscn
 res://enemies/tank_enemy.tscn
 res://components/health_component.gd
 res://weapons/src/damage_data.gd
+res://scenes/GameOverScreen.tscn
+res://scenes/game_over_screen.gd
+res://scenes/story_scene.tscn
+res://scenes/story_scene.gd
+res://scenes/game_finished_screen.tscn
+res://scenes/game_finished_screen.gd

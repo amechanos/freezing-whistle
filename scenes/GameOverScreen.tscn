@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://lagygdisch7j"]
+
+[ext_resource type="Script" uid="uid://6ip85adra1pw" path="res://scenes/game_over_screen.gd" id="1_1tm0t"]
+[ext_resource type="Texture2D" uid="uid://dmc61j0xs8c6i" path="res://assets/game_over_bg.png" id="1_jb1p3"]
+[ext_resource type="FontFile" uid="uid://dwy4cxx2ox35k" path="res://fonts/Iceberg/Iceberg-Regular.ttf" id="2_1tm0t"]
+
+[node name="GameOverScreen" type="Control" unique_id=651531002]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1tm0t")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=732622799]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_jb1p3")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="." unique_id=1832690911]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -384.0
+offset_top = 22.0
+offset_right = 392.0
+offset_bottom = 136.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_1tm0t")
+theme_override_font_sizes/font_size = 64
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=1623628625]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -60.0
+offset_right = 33.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_1tm0t")
+theme_override_font_sizes/font_size = 32
+text = "Restart"
+
+[node name="Button2" type="Button" parent="." unique_id=833995858]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -12.0
+offset_right = 42.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_1tm0t")
+theme_override_font_sizes/font_size = 32
+text = "Menu"
+
+[connection signal="pressed" from="Button" to="." method="restart"]
+[connection signal="pressed" from="Button2" to="." method="back_to_menu"]

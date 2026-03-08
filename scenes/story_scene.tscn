@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://cqyn6dwcc0xqo"]
+
+[ext_resource type="Texture2D" uid="uid://ckpjx2qg88fj1" path="res://assets/shop_menu_bg.png" id="1_glxco"]
+[ext_resource type="Script" uid="uid://d2by8mfqfifyu" path="res://scenes/story_scene.gd" id="1_hot48"]
+[ext_resource type="FontFile" uid="uid://dwy4cxx2ox35k" path="res://fonts/Iceberg/Iceberg-Regular.ttf" id="2_hot48"]
+
+[node name="StoryScene" type="Control" unique_id=621045489]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hot48")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=21022992]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_glxco")
+
+[node name="Label" type="Label" parent="." unique_id=2002699726]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.22864583
+anchor_top = 0.31157407
+anchor_right = 0.77135414
+anchor_bottom = 0.6884259
+offset_left = 501.0
+offset_top = 188.5
+offset_right = -501.0
+offset_bottom = -188.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_hot48")
+theme_override_font_sizes/font_size = 64
+text = "An avalanche has fallen over snow land 
+upgrade your stuff
+kill the moggles 
+and save snow land
+you can do it..."
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="." unique_id=446907885]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.12916666
+anchor_top = 0.014814815
+anchor_right = 0.4015625
+anchor_bottom = 0.21111111
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_hot48")
+theme_override_font_sizes/font_size = 32
+text = "Controls:
+WASD: Movement
+Right Click : whistle/freeze
+Left Click : throw snowballs"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label3" type="Label" parent="." unique_id=1975010409]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.22916667
+anchor_top = 0.17037037
+anchor_right = 0.771875
+anchor_bottom = 0.31574073
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_hot48")
+theme_override_font_sizes/font_size = 128
+text = "Story"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="." unique_id=587200152]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.47916666
+anchor_top = 0.8888889
+anchor_right = 0.51979166
+anchor_bottom = 0.93333334
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_hot48")
+theme_override_font_sizes/font_size = 64
+text = "Start"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Button" to="." method="start"]

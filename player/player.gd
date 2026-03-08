@@ -36,4 +36,4 @@ func _physics_process(delta):
 	move_and_slide()
 
 func kill():
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/GameOverScreen.tscn")

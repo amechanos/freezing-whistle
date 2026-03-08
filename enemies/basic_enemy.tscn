@@ -9,6 +9,12 @@ radius = 40.0
 
 [node name="BasicEnemy" type="Area2D" unique_id=151461423]
 script = ExtResource("1_6ofcp")
+min_speed = 35.0
+max_speed = 40.0
+min_damage = 10
+max_damage = 20
+score_min = 15
+score_max = 20
 
 [node name="HealthComponent" type="Node2D" parent="." unique_id=547684747]
 script = ExtResource("2_5xrap")

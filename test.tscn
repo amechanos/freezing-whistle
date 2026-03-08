@@ -29,6 +29,7 @@ autostart = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2086919546]
 stream = SubResource("AudioStreamMP3_ppyta")
+volume_db = -1.0
 autoplay = true
 bus = &"Music"
 

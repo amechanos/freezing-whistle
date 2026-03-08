@@ -1,11 +1,11 @@
+Button
 TextureRect
+Label
 AudioStreamPlayer
 CPUParticles2D
-Label
 Panel
 CheckBox
 VBoxContainer
-Button
 AnimationPlayer
 Sprite2D
 Node2D

@@ -37,7 +37,8 @@ func heal(amount : float) -> void:
 	healed.emit()
 	health_changed.emit(current_health, max_health)
 
-func set_health(amount : float) -> void:
+func set_health(amount : int) -> void:
+	max_health = amount
 	current_health = amount
 	health_changed.emit(current_health, max_health)
 	

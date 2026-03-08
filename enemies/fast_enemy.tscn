@@ -9,10 +9,11 @@ radius = 40.0
 
 [node name="FastEnemy" type="Area2D" unique_id=151461423]
 script = ExtResource("1_gmjgf")
-min_speed = 20.0
-max_speed = 45.0
-min_damage = 15.0
-max_damage = 30.0
+min_speed = 35.0
+max_speed = 55.0
+attack_time = 0.35
+min_damage = 5
+max_damage = 10
 
 [node name="HealthComponent" type="Node2D" parent="." unique_id=547684747]
 script = ExtResource("2_lhmyx")

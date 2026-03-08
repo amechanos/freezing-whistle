@@ -4,8 +4,8 @@ var currency = 0
 var killed = 0
 var t = clampf(killed / 250.0, 0.0, 1.0)
 var enemies = [
-	{ "scene": preload("res://enemies/basic_enemy.tscn"), "weight": 60 },
-	{ "scene": preload("res://enemies/fast_enemy.tscn"), "weight": 30 },
+	{ "scene": preload("res://enemies/basic_enemy.tscn"), "weight": 55 },
+	{ "scene": preload("res://enemies/fast_enemy.tscn"), "weight": 35 },
 	{ "scene": preload("res://enemies/tank_enemy.tscn"), "weight": 10 }
 ]
 
@@ -77,10 +77,12 @@ func _check_threshold() -> void:
 	if killed >= SHOP_THRESHOLDS[threshold_index]:
 		threshold_index += 1
 		warp()
+	if threshold_index == 7:
+		pass
 
-func enemy_killed():
+func enemy_killed(score_min : int, score_max : int):
 	updateUI()
-	currency += int(randi_range(1, 25) * lerp(1.0, 3.0, t * t))
+	currency += int(randi_range(score_min, score_max) * lerp(1.0, 3.0, t * t))
 	killed += 1
 	_check_threshold()
 	print(currency)

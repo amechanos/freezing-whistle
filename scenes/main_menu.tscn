@@ -32,10 +32,10 @@ metadata/_edit_use_anchors_ = true
 [node name="Main" type="Panel" parent="." unique_id=1271832987]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.00625
-anchor_top = 0.7763889
-anchor_right = 0.253125
-anchor_bottom = 0.98888886
+anchor_left = 0.008333334
+anchor_top = 0.73333335
+anchor_right = 0.175
+anchor_bottom = 0.8310185
 grow_vertical = 0
 metadata/_edit_use_anchors_ = true
 
@@ -52,12 +52,6 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_l6cm7")
 theme_override_font_sizes/font_size = 32
 text = "Start"
-
-[node name="OptionsButton" type="Button" parent="Main/VBoxContainer" unique_id=1239252301]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_l6cm7")
-theme_override_font_sizes/font_size = 32
-text = "Options"
 
 [node name="QuitButton" type="Button" parent="Main/VBoxContainer" unique_id=1353662749]
 layout_mode = 2
